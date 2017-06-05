@@ -1,0 +1,85 @@
+body {
+	background: #F5F5F5;
+	background-repeat: no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.dashboard {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	float: none;
+	vertical-align: initial;
+	-webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2.5px);
+}
+
+.dashboard:hover {
+	-webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(1px);
+}
+
+.dashboard_wr {
+	padding-left: 0px;
+	padding-right: 5px;
+	box-shadow: 10px 10px 20px grey;
+}
+
+.vertical-text {
+	transform: rotate(90deg);
+	transform-origin: left top 0;
+	position: relative;
+    top: -150px;
+}
+
+.char2 {
+  text-align: center;
+  width: 60%;
+  height: 60%;
+  position: absolute;
+	z-index: 1;
+	top: 15%;
+	left: 20%;
+	display: none;
+}
+
+
+#info {
+	background:rgba(218,218,218,0.4);
+	color: #666666;
+	display: none;
+	position: absolute;
+	z-index: 1;
+	top:40%;
+	left:5%;
+	box-shadow: 10px 10px 20px grey;
+	
+}
+
+.modal_shadow {
+	box-shadow: 10px 10px 20px grey;
+}
+
+em {
+	color: orange;
+}
+
+.crumb_style_modal {
+	color: #666666;
+}
+
+.crumb_style_modal:hover {
+color: #DADADA;
+text-decoration: none;
+}
+
+

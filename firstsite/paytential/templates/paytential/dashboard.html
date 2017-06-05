@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+    {% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'paytential/css/main_css.css' %}" type = "text/css"/>
+	
+	<link rel="stylesheet" href="{% static 'paytential/css/dashboard_css.css' %}" type = "text/css"/>
+	
+	<script>
+	/*var nameEmployee = ["Kateryna Turchyna", "Min Kim", "Molly Villodas", "Loreina Brown", "Jeniece Smiley"];
+	var potential = [1,3,3,2,3]; 
+	var performance = [3,3,1,1,2];
+	var arrayLength = nameEmployee.length;
+	var x = 0;*/
+	/*for ( x = 0; x < arrayLength; x++) {
+    alert(nameEmployee[x]);
+	var obj = { name: "Kate", age: 14 };
+	if (obj.name == Kate || obj.age < 20)
+	
+	var arr = [];
+	arr.push(obj);*/
+	
+	
+	var arr = [
+		{
+			name: "Kateryna Turchyna",
+			potential: 1,
+			performance: 2,
+		},
+		{
+			name: "Min Kim",
+			potential: 3,
+			performance: 3,
+		},
+		{
+			name: "Viseth Sen",
+			potential: 2,
+			performance: 2,
+		},
+		{
+			name: "Molly Villodas",
+			potential: 1,
+			performance: 2,
+		},
+		{
+			name: "Jeniece Smiley",
+			potential: 3,
+			performance: 3,
+		},
+		{
+			name: "Loreina Brown",
+			potential: 2,
+			performance: 2,
+		}
+	];
+	
+	
+function myFunction() 
+{
+	for (a in arr)
+	{
+		if(arr[a].potential==1 && arr[a].performance==1){
+			document.getElementById("grid_3").style.display = "block";	
+		}
+		else if(arr[a].potential == 2 && arr[a].performance==2){
+			document.getElementById("grid_5").style.display = "block";
+		}
+		else if(arr[a].potential ==3 && arr[a].performance==3){
+			document.getElementById("grid_7").style.display = "block";
+		}
+		else if(arr[a].potential == 1 && arr[a].performance == 2){
+			document.getElementById("grid_2").style.display = "block";
+		}
+		else if(arr[a].potential == 1 && arr[a].performance == 3){
+			document.getElementById("grid_1").style.display = "block";
+		}
+		else if(arr[a].potential == 2 && arr[a].performance == 1){
+			document.getElementById("grid_6").style.display = "block";
+		}
+		else if(arr[a].potential == 2 && arr[a].performance == 3){
+			document.getElementById("grid_4").style.display = "block";
+		}
+		else if(arr[a].potential == 3 && arr[a].performance == 1){
+			document.getElementById("grid_9").style.display = "block";
+		}
+		else if(arr[a].potential == 3 && arr[a].performance == 2){
+			document.getElementById("grid_8").style.display = "block";
+		}
+	}
+}
+	
+	
+
+	
+	/*for ( x=0; x < nameEmployee.length; x++) {
+		alert(nameEmployee[x] +","+ potential[x] + [x]);
+	}*/
+
+	
+	/*function myFunction() 
+	{
+		for ( x=0; x < nameEmployee.length; x++) {
+		if(potential[x]==1&&performance[x]==1){
+			document.getElementById("grid_3").style.display = "block";	
+		}
+		else if(potential[x]==2&&performance[x]==2){
+			document.getElementById("grid_5").style.display = "block";
+		}
+		else if(potential[x]==3&&performance[x]==3){
+			document.getElementById("grid_7").style.display = "block";
+		}
+		else if(potential[x]==1&&performance[x]==2){
+			document.getElementById("grid_2").style.display = "block";
+		}
+		else if(potential[x]==1&&performance[x]==3){
+			document.getElementById("grid_1").style.display = "block";
+		}
+		else if(potential[x]==2&&performance[x]==1){
+			document.getElementById("grid_6").style.display = "block";
+		}
+		else if(potential[x]==2&&performance[x]==3){
+			document.getElementById("grid_4").style.display = "block";
+		}
+		else if(potential[x]==3&&performance[x]==1){
+			document.getElementById("grid_9").style.display = "block";
+		}
+		else if(potential[x]==3&&performance[x]==2){
+			document.getElementById("grid_8").style.display = "block";
+		}
+	}
+	x = 0;
+	}
+*/	
+function hover(o) {
+	var potential = o.getAttribute("poten");
+	var performance = o.getAttribute("perf");
+	
+	var filteredArr = arr.filter(function(a) { return (a.potential == potential) && (a.performance == performance); });
+	
+	var name = filteredArr.map(function(a) { return a.name; }).join("<br>");
+	
+	//var name = filteredArr.name;
+	document.getElementById('info').innerHTML = '<p>Potential </p>' + potential+ '<p>performance </p>' + performance + '<p>employees:</p>' +'<em>'+name+'</em>';
+	document.getElementById('info').style.display = 'block';
+	/*document.getElementById('info').innerHTML = nameEmployee[x] +'<p>Potential </p>' + potential[x]+ '<p>performance </p>' + performance[x];
+	document.getElementById('info').style.display = 'block';
+	console.log(potential, performance);*/
+	
+}
+
+
+
+
+function hide() {
+	document.getElementById('info').style.display = 'none';
+}
+
+
+</script>
+
+</head>
+<body>
+
+<header>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="#"><img src="{% static 'paytential/images/paytential_logo.png' %}" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+		<li><a href="http://127.0.0.1:8000/home/">Home</a></li>
+		<li><a href="create_a_user.html">Create user</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="http://127.0.0.1:8000/help/">Help</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</header>
+
+<ol class="breadcrumb crumb_style">
+  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+  <li class="breadcrumb-item active" style="color: orange;">Dashboard</li>
+</ol>
+
+<div class="container-fluid" id="dashboard_grid">
+<button onclick="myFunction()">Graph</button>
+
+
+<!-- Large modal -->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">High Pro Quadrant</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="http://i.imgur.com/EI0mlEJ.png" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">Utility Pro</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">Consistent Star</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="http://i.imgur.com/5NuWzAb.png" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">Solid Performers Quadrant</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="http://i.imgur.com/XUWZN45.png" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">Utility Player Quadrant</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="http://i.imgur.com/pHmYpvH.png" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg-5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">Future Star Quadrant</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="http://i.imgur.com/I16tg3m.png" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg-6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">Take Action Quadrant</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="http://i.imgur.com/8koCOcD.png" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg-7" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">Inconsistent Quadrant</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg-8" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<ol class="breadcrumb crumb_style">
+			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
+			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
+			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
+			  <li class="breadcrumb-item active" style="color: orange;">Rough Dimond Quadrant</li>
+			</ol>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<img src="http://i.imgur.com/Jp5Cj1g.png" class="dashboard" class="center-block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+    <div class="row">
+        <div class="list-group">
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
+                <a data-toggle="modal" data-target=".bs-example-modal-lg"><img src="http://i.imgur.com/EI0mlEJ.png" class="dashboard" class="center-block"></a>
+				<img id="grid_9" onmouseover="hover(this)" onmouseout="hide(this)" class="char2 " src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="1" poten="3"/>
+            </div>
+
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
+                 <a data-toggle="modal" data-target=".bs-example-modal-lg-1"><img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block"></a>
+				<img id="grid_8" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="3"/>
+            </div>
+
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
+                 <a data-toggle="modal" data-target=".bs-example-modal-lg-2"><img src="http://i.imgur.com/5NuWzAb.png" class="dashboard" class="center-block"></a>
+				<img id="grid_7" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="3" poten="3"/>
+            </div>
+			
+			<div class="col-xs-1" id="info"></div>
+        </div>
+    </div>
+	
+	<div class="row">
+        <div class="list-group">
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
+                 <a data-toggle="modal" data-target=".bs-example-modal-lg-3"><img src="http://i.imgur.com/XUWZN45.png" class="dashboard"></a>
+				<img id="grid_6" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="1" poten="2"/>
+            </div>
+
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
+                <a data-toggle="modal" data-target=".bs-example-modal-lg-4"><img src="http://i.imgur.com/pHmYpvH.png" class="dashboard"></a>
+				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="2" poten="2"/>
+            </div>
+
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
+                <a data-toggle="modal" data-target=".bs-example-modal-lg-5"><img src="http://i.imgur.com/I16tg3m.png" class="dashboard"></a>
+				<img id="grid_4" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="3" poten="2"/>
+            </div>
+        </div>
+    </div>
+	
+	<div class="row">
+        <div class="list-group">
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
+                <a data-toggle="modal" data-target=".bs-example-modal-lg-6"><img src="http://i.imgur.com/8koCOcD.png" class="dashboard"></a>
+				<img id="grid_3" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="1" poten="1"/>
+				<!--<h4 class="def-text">performance →</h4>
+				<h4 class="def-text vertical-text">←potential</h4>-->
+				
+            </div>
+
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
+                <a data-toggle="modal" data-target=".bs-example-modal-lg-7"><img src="http://i.imgur.com/hnUaaxX.png" class="dashboard"></a>
+				<img id="grid_2" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="1"/>
+            </div>
+
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
+                <a data-toggle="modal" data-target=".bs-example-modal-lg-8"> <img src="http://i.imgur.com/Jp5Cj1g.png" class="dashboard"></a>
+				<img id="grid_1" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="1"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+	<div class="row text-center">
+		<h5>Subscribe to our monthly newsletter</h5>
+		<form class="form-inline col-xs-12 text-center" method="post" action="....py">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Email Address">
+			</div>
+				<button type="submit" class="btn orange-button explanation">Send</button>
+		</form>
+	</div>
+	<div class="row">
+		<ul id="social-icons" class="center-block">
+			<li class="social-icons col-xs-2"><a href="https://www.facebook.com/Paylocity" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook-official"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://twitter.com/Paylocity" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://www.linkedin.com/company-beta/24614" class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://www.youtube.com/user/PaylocityCorporation" class="btn btn-social-icon btn-youtube"><i class="fa fa-youtube"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://plus.google.com/+paylocity" class="btn btn-social-icon btn-google"><i class="fa fa-google"></i></a></li>
+		</ul>
+	</div>
+	<h6 class="text-center">&#9400 Team Unit 2017</h6>
+</footer>
+</body>
+</body>
+</html>

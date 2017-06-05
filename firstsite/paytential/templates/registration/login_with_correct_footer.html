@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% load static %}
+	<link href="{% static 'paytential/css/main_css.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+		<!--Nav Bar-->
+<nav class="navbar-collapse collapse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand"><img src="{% static 'paytential/css/small.gif' %}" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Search List</a></li>
+        <li><a href="#">Help</a></li>
+     </ul>     
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+		<div class="row">
+			<div class="jumbotron col-xs-6 col-md-offset-3 center-block margin_top" style="float: none;
+    ">
+			  <img src="{% static 'paytential/images/AppleOrange2017.png' %}" style="width: 40%; height: 40%;" class="img-responsive center-block">
+				<form method="post">
+                {% csrf_token %}
+                  {% for field in form %}
+                     <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                     <input
+                    type="{% if 'password' in field.name %}password{% else %}text{% endif %}"
+                    class="form-control  text-center"
+                    name="{{ field.name }}"
+                    id="{{ field.id_for_label }}"
+                    value="{% if field.value %}{{ field.value }}{% endif %}">
+                 {% endfor %}
+                <!-- Template loop, django is giving a list/array of employees, to loop through employees -->
+                <!-- here we are looping over the fields in form (line 46-54) -->
+
+           <!--     <button type="submit">Log In!</button> -->
+
+					<button class="btn btn-warning btn-lg orange-button center-block" type="submit">Submit</button>
+            </form>
+			</div><!--end of jum-->
+		</div><!--end of row-->
+	</div>
+<!--<div class="footer">-->
+<footer>
+	<div class="row text-center">
+		<h5>Subscribe to our monthly newsletter</h5>
+		<form class="form-inline col-xs-12 text-center" method="post" action="....py">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Email Address">
+			</div>
+				<button type="submit" class="btn btn-default orange-button">Send</button>
+		</form>
+	</div>
+	<div class="row">
+		<ul id="social-icons" class="center-block">
+			<li class="social-icons col-xs-3 col-md-2"><a href="https://www.facebook.com/Paylocity" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook-official"></i></a></li>
+			<li class="social-icons col-xs-3 col-md-2"><a href="https://twitter.com/Paylocity" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a></li>
+			<li class="social-icons col-xs-3 col-md-2"><a href="https://www.linkedin.com/company-beta/24614" class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a></li>
+			<li class="social-icons col-xs-3 col-md-2"><a href="https://www.youtube.com/user/PaylocityCorporation" class="btn btn-social-icon btn-youtube"><i class="fa fa-youtube"></i></a></li>
+			<li class="social-icons col-xs-3 col-md-2"><a href="https://plus.google.com/+paylocity" class="btn btn-social-icon btn-google"><i class="fa fa-google"></i></a></li>
+		</ul>
+	</div>
+	<h6 class="text-center">&#9400 Team Unit 2017</h6>
+</footer>
+	
+</body>
+</html>
