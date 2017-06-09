@@ -1,0 +1,116 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+</head>
+
+<body>
+</canvas><canvas id="myChart"></canvas>
+<script>
+
+
+	var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    datasets: [{
+      label: 'apples',
+      data: [12, 19, 3, 17, 6, 3, 7],
+      backgroundColor: "rgba(153,255,51,0.4)"
+    }, {
+      label: 'oranges',
+      data: [2, 29, 5, 5, 2, 3, 10],
+      backgroundColor: "rgba(255,153,0,0.4)"
+    }]
+  }
+});
+
+
+// For a bubble chart
+var myBubbleChart = new Chart(ctx,{
+    type: 'bubble',
+    data: data,
+    options: options
+});
+
+
+</script>
+</body>
+</html>-->
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<style>
+	#chartContainer {
+			border: 1px solid black;
+            background-image: url("block1.png");
+            background-size: 80% 80%;
+            background-position-y: -81px;
+	}
+</style>  
+	<script type="text/javascript">
+
+	window.onload = function () {
+		var chart = new CanvasJS.Chart("chartContainer",
+		{	
+			responsive: true,
+			zoomEnabled: true,
+            animationEnabled: true,
+			title:{
+				text: "Potential and performance of the IT department`s employees"      
+				
+			},
+			axisX: {
+				title:"Performance",
+				maximum: 10,
+				titleMaxWidth: 500,
+				gridThickness: 0,
+				tickThickness: 0,
+				gridColor: "lightgrey",
+				tickColor: "lightgrey",
+				lineThickness: 0
+			},
+			axisY:{
+				title: "Potential",
+				maximum: 10,
+				gridThickness: 0,
+				tickThickness: 0,
+				gridColor: "lightgrey",
+				tickColor: "lightgrey",
+				lineThickness: 0              
+
+			},
+
+			data: [
+			{        
+				type: "bubble",                   
+				toolTipContent: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span><br/><strong>Employment</strong> {x}% <br/> <strong>Agri Land</strong> {y} million sq. km<br/> <strong>Population</strong> {z} mn",
+				dataPoints: [
+
+				{ x: 2, y: 5, z:1347,  name:"Loreina Brown" },
+				{ x: 3.3, y: 4.17, z:21.49,  name:"Viseth Sen" },
+				{ x: 1.5, y: 4.043, z:304.09,  name:"Kateryna Turchyna" },
+				{ x: 17.4, y: 2.647, z:2.64,  name:"Molly Villodas" },
+				{ x: 8.6, y: 2.154, z:141.95,  name:"Jeniece Smiley" },
+				
+				]
+			}
+			]
+		});
+
+chart.render();
+}
+
+
+
+</script>
+<script type="text/javascript" src="canvasjs.min.js"></script>
+</head>
+<body>
+	<div id="chartContainer" style="height: 50%; width: 50%;">
+	</div>
+</body>
+</html>

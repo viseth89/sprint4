@@ -6,33 +6,33 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="canvasjs.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
-    {% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'paytential/css/main_css.css' %}" type = "text/css"/>
+    <link rel="stylesheet" type="text/css" href="main_css.css">
+	<link rel="stylesheet" type="text/css" href="dashboard_css.css">
 	
-	<link rel="stylesheet" href="{% static 'paytential/css/dashboard_css.css' %}" type = "text/css"/>
+	<style>
+		 #canvas {
+            background-image: url("block1.png");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment: fixed;
+			background-size: cover;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+            
+        }
+	</style>
 	
 	<script>
-	/*var nameEmployee = ["Kateryna Turchyna", "Min Kim", "Molly Villodas", "Loreina Brown", "Jeniece Smiley"];
-	var potential = [1,3,3,2,3]; 
-	var performance = [3,3,1,1,2];
-	var arrayLength = nameEmployee.length;
-	var x = 0;*/
-	/*for ( x = 0; x < arrayLength; x++) {
-    alert(nameEmployee[x]);
-	var obj = { name: "Kate", age: 14 };
-	if (obj.name == Kate || obj.age < 20)
-	
-	var arr = [];
-	arr.push(obj);*/
-	
-	
 	var arr = [
 		{
 			name: "Kateryna Turchyna",
 			potential: 1,
-			performance: 2,
+			performance: 1,
 		},
 		{
 			name: "Min Kim",
@@ -41,13 +41,13 @@
 		},
 		{
 			name: "Viseth Sen",
-			potential: 2,
-			performance: 2,
+			potential: 8,
+			performance: 7,
 		},
 		{
 			name: "Molly Villodas",
-			potential: 1,
-			performance: 2,
+			potential: 9,
+			performance: 3,
 		},
 		{
 			name: "Jeniece Smiley",
@@ -61,7 +61,148 @@
 		}
 	];
 	
+	function getIndex(val)
+	{
+		if (val > 0 && val <= 3)
+			return 1;
+		else if (val >=4 && val <= 7)
+			return 2;
+		else
+			return 3;
+	}
 	
+	/*function employeeMatcheshSpecifiedIndicators(employee, performance, potential) {
+		if(employee.potential === potential && employee.performance === performance) return true;
+		return false;	
+	}*/
+	
+	console.log('first');
+	console.log(arr);
+	for(a in arr)
+	{
+		//console.log("Old: " + a.potential + "; New: " + getIndex(a.potential));
+		arr[a].potentialOriginal = arr[a].potential;
+		arr[a].potential = getIndex(arr[a].potential);
+		arr[a].performanceOriginal = arr[a].performance;
+		arr[a].performance = getIndex(arr[a].performance);
+	}
+	
+	console.log('second');
+	console.log(arr);
+	
+	
+	var apple = new Image();
+	
+	function function_dash() 
+{
+	for (a in arr)
+	{
+	
+		if (arr[a].potential ==3 && arr[a].performance==3){
+			 function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 400, 10, 100, 100);
+		}
+		image();
+			
+		}else if (arr[a].potential == 2 && arr[a].performance==2) {
+			 function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 200, 170, 100, 100);
+		}
+		image();
+		}else if (arr[a].potential==1 && arr[a].performance==1){
+			function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 10, 350, 100, 100);
+		}
+		image();
+		}else if (arr[a].potential == 1 && arr[a].performance==2) {
+			 function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 10, 170, 100, 100);
+		}
+		image();
+		}else if (arr[a].potential == 3 && arr[a].performance==2) {
+			 function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 350, 170, 100, 100);
+		}
+		image();
+		}else if (arr[a].potential == 3 && arr[a].performance==1) {
+			 function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 10, 170, 100, 100);
+		}
+		image();
+		}else if (arr[a].potential == 1 && arr[a].performance==3) {
+			 function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 10, 10, 100, 100);
+		}
+		image();
+		}else if (arr[a].potential == 2 && arr[a].performance==3) {
+			 function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 170, 10, 100, 100);
+		}
+		image();
+		}else if (arr[a].potential == 2 && arr[a].performance==1) {
+			 function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 170, 350, 100, 100);
+		}
+		image();
+		}
+	
+	}
+}
+
 function myFunction() 
 {
 	for (a in arr)
@@ -94,69 +235,35 @@ function myFunction()
 			document.getElementById("grid_8").style.display = "block";
 		}
 	}
-}
 	
+	/*var elements = document.getElementsByClassName("char2")
 	
-
+	var currentListOfEmployees = null;
 	
-	/*for ( x=0; x < nameEmployee.length; x++) {
-		alert(nameEmployee[x] +","+ potential[x] + [x]);
+	for(var i=0; i<elements.length; i++) {
+		elements[i].addEventListener("click", function(){setListOfEmployees(this)});
 	}*/
+}
 
+	/*function setListOfEmployees(element) {
+		var employees = []
+		for(employee in arr) {
+			if(employeeMatcheshSpecifiedIndicators(employee, element.getAttribute("perf"), elementgetAttribute("poten")) {
+				employees.push(employee)
+			}
+		}
+		currentListOfEmployees = employees
+	}*/
 	
-	/*function myFunction() 
-	{
-		for ( x=0; x < nameEmployee.length; x++) {
-		if(potential[x]==1&&performance[x]==1){
-			document.getElementById("grid_3").style.display = "block";	
-		}
-		else if(potential[x]==2&&performance[x]==2){
-			document.getElementById("grid_5").style.display = "block";
-		}
-		else if(potential[x]==3&&performance[x]==3){
-			document.getElementById("grid_7").style.display = "block";
-		}
-		else if(potential[x]==1&&performance[x]==2){
-			document.getElementById("grid_2").style.display = "block";
-		}
-		else if(potential[x]==1&&performance[x]==3){
-			document.getElementById("grid_1").style.display = "block";
-		}
-		else if(potential[x]==2&&performance[x]==1){
-			document.getElementById("grid_6").style.display = "block";
-		}
-		else if(potential[x]==2&&performance[x]==3){
-			document.getElementById("grid_4").style.display = "block";
-		}
-		else if(potential[x]==3&&performance[x]==1){
-			document.getElementById("grid_9").style.display = "block";
-		}
-		else if(potential[x]==3&&performance[x]==2){
-			document.getElementById("grid_8").style.display = "block";
-		}
-	}
-	x = 0;
-	}
-*/	
+
 function hover(o) {
 	var potential = o.getAttribute("poten");
 	var performance = o.getAttribute("perf");
-	
 	var filteredArr = arr.filter(function(a) { return (a.potential == potential) && (a.performance == performance); });
-	
-	var name = filteredArr.map(function(a) { return a.name; }).join("<br>");
-	
-	//var name = filteredArr.name;
-	document.getElementById('info').innerHTML = '<p>Potential </p>' + potential+ '<p>performance </p>' + performance + '<p>employees:</p>' +'<em>'+name+'</em>';
+	var name = filteredArr.map(function(a) { return a.name + "(" + a.potentialOriginal + ", " + a.performanceOriginal + ")"; }).join("<br>");
+	document.getElementById('info').innerHTML = /*'<p>Potential </p>' + potential+ '<p>performance </p>' + performance + '<p>employees:</p>' +*/'<em>'+name+'</em>';
 	document.getElementById('info').style.display = 'block';
-	/*document.getElementById('info').innerHTML = nameEmployee[x] +'<p>Potential </p>' + potential[x]+ '<p>performance </p>' + performance[x];
-	document.getElementById('info').style.display = 'block';
-	console.log(potential, performance);*/
-	
 }
-
-
-
 
 function hide() {
 	document.getElementById('info').style.display = 'none';
@@ -166,7 +273,7 @@ function hide() {
 </script>
 
 </head>
-<body>
+<body onload="myFunction();">
 
 <header>
 <nav class="navbar navbar-default">
@@ -179,15 +286,15 @@ function hide() {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="#"><img src="{% static 'paytential/images/paytential_logo.png' %}" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
+	  <a class="navbar-brand" href="#"><img src="paytential_logo.png" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-		<li><a href="http://127.0.0.1:8000/home/">Home</a></li>
+		<li><a href="operationunit.html">Home</a></li>
 		<li><a href="create_a_user.html">Create user</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="http://127.0.0.1:8000/help/">Help</a></li>
+        <li><a href="help.html">Help</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -201,7 +308,34 @@ function hide() {
 </ol>
 
 <div class="container-fluid" id="dashboard_grid">
-<button onclick="myFunction()">Graph</button>
+<!-- <button type="submit" class="btn orange-button explanation"onclick="myFunction()">Dashboard</button> -->
+
+
+<div class="container demo">
+	
+	<!-- Modal list of employees in the one grid-->
+	<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel2" style="color: #FF5511;">High Pro Grid</h4>
+				</div>
+
+				<div class="modal-body">
+						<p class="list_space"><em>Molly Villodas</em>: performance 8, potential 9<br>
+						<em>Min Kim</em>: performance 8, potential 8<br>
+						<em>Viseth Sen</em>: performane 7, potential 9<br>
+						<em>Kateryna Turchyna</em>: performance 7, potential 7</p>
+				</div>
+
+			</div><!-- modal-content -->
+		</div><!-- modal-dialog -->
+	</div><!-- modal -->
+	
+	
+</div><!-- container -->
 
 
 <!-- Large modal -->
@@ -214,7 +348,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">High Pro Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Promotion Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -237,13 +371,16 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Utility Pro</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Adapted Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-		<img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block">
+		<a class="btn orange-button center-block list-of-employees-modal-button" style="text-decoration: none; width: 50%; height: 30%; margin-bottom: 2%; color: white;  " data-toggle="modal" data-target="#myModal2">List of employees<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+		 <div id="mycanvas">
+			<canvas id="canvas"  width="500" height="450" class="dashboard" style="filter: blur(0px);"class="center-block"></canvas>
+		</div>
+		<!-- <img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block"> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -252,7 +389,7 @@ function hide() {
 </div>
 </div>
 
-<div class="modal fade bs-example-modal-lg-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal fade bs-example-modal-lg-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -260,7 +397,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Consistent Star</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Guidance Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -283,7 +420,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Solid Performers Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Monitor Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -306,7 +443,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Utility Player Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Priorize Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -329,7 +466,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Future Star Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Elevated Training Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -352,7 +489,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Take Action Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Implement Solution Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -375,7 +512,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Inconsistent Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Define Goals Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -398,7 +535,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Rough Dimond Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Succession Planning Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -419,17 +556,17 @@ function hide() {
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg"><img src="http://i.imgur.com/EI0mlEJ.png" class="dashboard" class="center-block"></a>
-				<img id="grid_9" onmouseover="hover(this)" onmouseout="hide(this)" class="char2 " src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="1" poten="3"/>
+				<img id="grid_9" onmouseover="hover(this)" onmouseout="hide(this)" class="char2 " src="basket_of_apples.png" perf="1" poten="3"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
-                 <a data-toggle="modal" data-target=".bs-example-modal-lg-1"><img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block"></a>
-				<img id="grid_8" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="3"/>
+                 <a data-toggle="modal" data-target=".bs-example-modal-lg-1"><img src="http://i.imgur.com/VlvISNB.png" class="dashboard" onclick="function_dash()" class="center-block"></a>
+				<img id="grid_8" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="3"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                  <a data-toggle="modal" data-target=".bs-example-modal-lg-2"><img src="http://i.imgur.com/5NuWzAb.png" class="dashboard" class="center-block"></a>
-				<img id="grid_7" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="3" poten="3"/>
+				<img id="grid_7" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="3" poten="3"/>
             </div>
 			
 			<div class="col-xs-1" id="info"></div>
@@ -440,17 +577,17 @@ function hide() {
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
                  <a data-toggle="modal" data-target=".bs-example-modal-lg-3"><img src="http://i.imgur.com/XUWZN45.png" class="dashboard"></a>
-				<img id="grid_6" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="1" poten="2"/>
+				<img id="grid_6" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="1" poten="2"/>
             </div>
 
-            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr" onclick="function_dash()">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-4"><img src="http://i.imgur.com/pHmYpvH.png" class="dashboard"></a>
-				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="2" poten="2"/>
+				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="2" poten="2"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-5"><img src="http://i.imgur.com/I16tg3m.png" class="dashboard"></a>
-				<img id="grid_4" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="3" poten="2"/>
+				<img id="grid_4" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="3" poten="2"/>
             </div>
         </div>
     </div>
@@ -458,24 +595,29 @@ function hide() {
 	<div class="row">
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
+			<h4 class="pot vertical-text">←potential</h4>
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-6"><img src="http://i.imgur.com/8koCOcD.png" class="dashboard"></a>
-				<img id="grid_3" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="1" poten="1"/>
-				<!--<h4 class="def-text">performance →</h4>
-				<h4 class="def-text vertical-text">←potential</h4>-->
+				<img id="grid_3" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="1" poten="1"/>
 				
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-7"><img src="http://i.imgur.com/hnUaaxX.png" class="dashboard"></a>
-				<img id="grid_2" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="1"/>
+				<img id="grid_2" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="1"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-8"> <img src="http://i.imgur.com/Jp5Cj1g.png" class="dashboard"></a>
-				<img id="grid_1" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="1"/>
+				<img id="grid_1" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="1"/>
             </div>
         </div>
     </div>
+	
+	<div class="row">
+		<div class="col-xs-10">
+			<h4 class="perf">performance →</h4>
+		</div>
+	</div>
 </div>
 
 <footer>
