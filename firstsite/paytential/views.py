@@ -8,12 +8,6 @@ from django.http import HttpResponse
 def operation(request):
     return render(request, 'paytential/operationunit.html')
 
-def login(request):
-    return render(request, 'paytential/index3.html')
-
-def contact(request):
-    return render(request, 'paytential/login_with_correct_footer.html')
-
 def help(request):
     return render(request, 'paytential/help.html')
 
@@ -31,3 +25,6 @@ def alogin(request):
 
 def odetails(request):
 	return render(request, 'paytential/op_detail.html')
+
+def viseth(request):
+	return render(request, 'paytential/viseth.html')
