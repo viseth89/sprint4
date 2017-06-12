@@ -10,9 +10,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="main_css.css">
-    {% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'paytential/css/main_css.css' %}" type = "text/css"/>
-	<link rel="stylesheet" href="{% static 'paytential/css/dashboard_css.css' %}" type = "text/css"/>
 	<link rel="stylesheet" type="text/css" href="dashboard_css.css">
 	
 	<style>
@@ -31,7 +28,7 @@
 	</style>
 	
 	<script>
-	var arr = [
+	var allEmployees = [
 		{
 			name: "Kateryna Turchyna",
 			potential: 1,
@@ -73,35 +70,24 @@
 		else
 			return 3;
 	}
-	
-	/*function employeeMatcheshSpecifiedIndicators(employee, performance, potential) {
-		if(employee.potential === potential && employee.performance === performance) return true;
-		return false;	
-	}*/
-	
-	console.log('first');
-	console.log(arr);
-	for(a in arr)
+
+	for(a in allEmployees)
 	{
 		//console.log("Old: " + a.potential + "; New: " + getIndex(a.potential));
-		arr[a].potentialOriginal = arr[a].potential;
-		arr[a].potential = getIndex(arr[a].potential);
-		arr[a].performanceOriginal = arr[a].performance;
-		arr[a].performance = getIndex(arr[a].performance);
+		allEmployees[a].potentialOriginal = allEmployees[a].potential;
+		allEmployees[a].potential = getIndex(allEmployees[a].potential);
+		allEmployees[a].performanceOriginal = allEmployees[a].performance;
+		allEmployees[a].performance = getIndex(allEmployees[a].performance);
 	}
-	
-	console.log('second');
-	console.log(arr);
-	
-	
+
 	var apple = new Image();
 	
-	function function_dash() 
+	/*function function_dash() 
 {
-	for (a in arr)
+	for (a in allEmployees)
 	{
 	
-		if (arr[a].potential ==3 && arr[a].performance==3){
+		if (allEmployees[a].potential ==3 && allEmployees[a].performance==3){
 			 function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -113,7 +99,7 @@
 		}
 		image();
 			
-		}else if (arr[a].potential == 2 && arr[a].performance==2) {
+		}else if (allEmployees[a].potential == 2 && allEmployees[a].performance==2) {
 			 function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -124,7 +110,7 @@
 			ctx.drawImage(apple, 200, 170, 100, 100);
 		}
 		image();
-		}else if (arr[a].potential==1 && arr[a].performance==1){
+		}else if (allEmployees[a].potential==1 && allEmployees[a].performance==1){
 			function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -135,7 +121,7 @@
 			ctx.drawImage(apple, 10, 350, 100, 100);
 		}
 		image();
-		}else if (arr[a].potential == 1 && arr[a].performance==2) {
+		}else if (allEmployees[a].potential == 1 && allEmployees[a].performance==2) {
 			 function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -146,7 +132,7 @@
 			ctx.drawImage(apple, 10, 170, 100, 100);
 		}
 		image();
-		}else if (arr[a].potential == 3 && arr[a].performance==2) {
+		}else if (allEmployees[a].potential == 3 && allEmployees[a].performance==2) {
 			 function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -157,7 +143,7 @@
 			ctx.drawImage(apple, 350, 170, 100, 100);
 		}
 		image();
-		}else if (arr[a].potential == 3 && arr[a].performance==1) {
+		}else if (allEmployees[a].potential == 3 && allEmployees[a].performance==1) {
 			 function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -168,7 +154,7 @@
 			ctx.drawImage(apple, 10, 170, 100, 100);
 		}
 		image();
-		}else if (arr[a].potential == 1 && arr[a].performance==3) {
+		}else if (allEmployees[a].potential == 1 && allEmployees[a].performance==3) {
 			 function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -179,7 +165,7 @@
 			ctx.drawImage(apple, 10, 10, 100, 100);
 		}
 		image();
-		}else if (arr[a].potential == 2 && arr[a].performance==3) {
+		}else if (allEmployees[a].potential == 2 && allEmployees[a].performance==3) {
 			 function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -190,7 +176,7 @@
 			ctx.drawImage(apple, 170, 10, 100, 100);
 		}
 		image();
-		}else if (arr[a].potential == 2 && arr[a].performance==1) {
+		}else if (allEmployees[a].potential == 2 && allEmployees[a].performance==1) {
 			 function image(){
 			apple.src = "AppleOrange2017.png";
 			window.requestAnimationFrame(draw);
@@ -204,65 +190,163 @@
 		}
 	
 	}
-}
+}*/
 
-function myFunction() 
+function showBaskets() 
 {
-	for (a in arr)
+	for (a in allEmployees)
 	{
-		if(arr[a].potential==1 && arr[a].performance==1){
-			document.getElementById("grid_3").style.display = "block";	
+		if(allEmployees[a].potential==1 && allEmployees[a].performance==1){
+			document.getElementById("grid_3").style.display = "block";
 		}
-		else if(arr[a].potential == 2 && arr[a].performance==2){
+		else if(allEmployees[a].potential == 2 && allEmployees[a].performance==2){
 			document.getElementById("grid_5").style.display = "block";
 		}
-		else if(arr[a].potential ==3 && arr[a].performance==3){
+		else if(allEmployees[a].potential ==3 && allEmployees[a].performance==3){
 			document.getElementById("grid_7").style.display = "block";
 		}
-		else if(arr[a].potential == 1 && arr[a].performance == 2){
+		else if(allEmployees[a].potential == 1 && allEmployees[a].performance == 2){
 			document.getElementById("grid_2").style.display = "block";
 		}
-		else if(arr[a].potential == 1 && arr[a].performance == 3){
+		else if(allEmployees[a].potential == 1 && allEmployees[a].performance == 3){
 			document.getElementById("grid_1").style.display = "block";
 		}
-		else if(arr[a].potential == 2 && arr[a].performance == 1){
+		else if(allEmployees[a].potential == 2 && allEmployees[a].performance == 1){
 			document.getElementById("grid_6").style.display = "block";
 		}
-		else if(arr[a].potential == 2 && arr[a].performance == 3){
+		else if(allEmployees[a].potential == 2 && allEmployees[a].performance == 3){
 			document.getElementById("grid_4").style.display = "block";
 		}
-		else if(arr[a].potential == 3 && arr[a].performance == 1){
+		else if(allEmployees[a].potential == 3 && allEmployees[a].performance == 1){
 			document.getElementById("grid_9").style.display = "block";
 		}
-		else if(arr[a].potential == 3 && arr[a].performance == 2){
+		else if(allEmployees[a].potential == 3 && allEmployees[a].performance == 2){
 			document.getElementById("grid_8").style.display = "block";
 		}
 	}
-	
-	/*var elements = document.getElementsByClassName("char2")
-	
-	var currentListOfEmployees = null;
-	
-	for(var i=0; i<elements.length; i++) {
-		elements[i].addEventListener("click", function(){setListOfEmployees(this)});
-	}*/
 }
 
-	/*function setListOfEmployees(element) {
-		var employees = []
-		for(employee in arr) {
-			if(employeeMatcheshSpecifiedIndicators(employee, element.getAttribute("perf"), elementgetAttribute("poten")) {
-				employees.push(employee)
-			}
-		}
-		currentListOfEmployees = employees
-	}*/
+var gridElements = document.getElementsByClassName("char2");
 	
+var currentListOfEmployees = null;
+
+function employeeMatcheshSpecifiedIndicators(employee, performance, potential) {
+	console.log("p:" +performance + "po:" + potential + "; e: " + employee);
+	if(employee.potential == potential && employee.performance == performance)
+	{
+		return true;
+	}
+	return false;	
+}
+
+
+function employeeTemplate(obj) {
+	var str = "<div>";
+	str += "<em>" +  obj.name + "</em>" + " : Performance: " + obj.performanceOriginal + "; Potential: " + obj.potentialOriginal + ";";
+	str += "</div>";
+	return str;
+}
+
+function employeesTemplate(arr) {
+	var str = "";
+	for (p in arr) {
+		str += employeeTemplate(arr[p]);
+	}
+	return str;
+}
+
+
+
+function setListOfEmployees(element) {
+	var employees = [];
+	for(employee in allEmployees) {
+		if(employeeMatcheshSpecifiedIndicators(allEmployees[employee], element.getAttribute("perf"), element.getAttribute("poten"))) {
+			employees.push(allEmployees[employee]);
+			console.log("Employee is added");
+		}
+	}
+	currentListOfEmployees = employees;
+	
+	/*if ( currentListOfEmployees.length > 1) {
+		function image(){
+			apple.src = "AppleOrange2017.png";
+			window.requestAnimationFrame(draw);
+		}
+		function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.drawImage(apple, 100, 10, 100, 100);
+		}
+		image();
+	}*/
+}
+<!-- underscore js templating -->
+/*var tpl = _.template("<div>Name: <%= name %>; Performance: <%= performance %>; Potential: <% potential %>;</div>");
+
+var str = "";
+for(p in arr) {
+	str += tpl(arr[p]);
+}
+el.innerHTML = str;*/
+
+/*
+//handle sorting by: lastname, performance, potential
+	function get_radio_value() {
+            var inputs = document.getElementsByName("inlineRadioOptions");
+            for (var i = 0; i < inputs.length; i++) {
+              if (inputs[i].checked) {
+                return inputs[i].value;
+              }
+            }
+          }
+
+    function sortBy() {
+        var id = get_radio_value();
+		if ( id == "inlineRadio1") {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.name < b.name) return -1;
+			if(a.name > b.name) return 1;
+			return 0;
+		})}else if (id == "inlineRadio2") {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.performance < b.performance) return -1;
+			if(a.performance > b.performance) return 1;
+			return 0;
+		})}else {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.potential < b.potential) return -1;
+			if(a.potential > b.potential) return 1;
+			return 0;
+		})
+		}
+}
+*/
+
+/* function sortBy() {
+ if(document.getElementById("inlineRadio1") == document.getElementById("inlineRadio1").checked ){
+	currentListOfEmployees.sort(function(a, b){
+			if(a.name < b.name) return -1;
+			if(a.name > b.name) return 1;
+			return 0;
+		})}else if (document.getElementById("inlineRadio2") == document.getElementById("inlineRadio2").checked) {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.performance < b.performance) return -1;
+			if(a.performance > b.performance) return 1;
+			return 0;
+		})}else {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.potential < b.potential) return -1;
+			if(a.potential > b.potential) return 1;
+			return 0;
+		})
+	}
+ }*/
 
 function hover(o) {
 	var potential = o.getAttribute("poten");
+	
 	var performance = o.getAttribute("perf");
-	var filteredArr = arr.filter(function(a) { return (a.potential == potential) && (a.performance == performance); });
+	var filteredArr = allEmployees.filter(function(a) { return (a.potential == potential) && (a.performance == performance); });
 	var name = filteredArr.map(function(a) { return a.name + "(" + a.potentialOriginal + ", " + a.performanceOriginal + ")"; }).join("<br>");
 	document.getElementById('info').innerHTML = /*'<p>Potential </p>' + potential+ '<p>performance </p>' + performance + '<p>employees:</p>' +*/'<em>'+name+'</em>';
 	document.getElementById('info').style.display = 'block';
@@ -272,17 +356,85 @@ function hide() {
 	document.getElementById('info').style.display = 'none';
 }
 
+function sortList() {
+	var sortOrder = document.getElementById("sortOrder").value;
+	console.log("sorted by: " + sortOrder);
+	if (sortOrder == "name") {
+		currentListOfEmployees.sort(function(a, b){
+			if(a.name < b.name) return -1;
+			if(a.name > b.name) return 1;
+			return 0;
+		});
+	} else if (sortOrder == "performance") {
+		currentListOfEmployees.sort(function(a, b){
+			if(a.performanceOriginal < b.performanceOriginal) return -1;
+			if(a.performanceOriginal > b.performanceOriginal) return 1;
+			return 0;
+		});
+		console.log("sort is completed");
+		console.log(JSON.stringify(currentListOfEmployees));
+	} else if (sortOrder == "potential") {
+		currentListOfEmployees.sort(function(a, b){
+			if(a.potentialOriginal < b.potentialOriginal) return -1;
+			if(a.potentialOriginal > b.potentialOriginal) return 1;
+			return 0;
+		});
+	}
+}
+
+function renderList() {
+	sortList();
+	// populate modal window with data
+	document.getElementById('displayedListOfEmployees').innerHTML = employeesTemplate(currentListOfEmployees);
+}
+
+
+window.onload = function() {
+	showBaskets();
+	
+	// adds event listener to each cell of the grid
+	for (var i = 0; i < gridElements.length; i++) {
+		gridElements[i].addEventListener("click", function(){
+			setListOfEmployees(this)
+			renderList();
+			// shows modal window
+			$('#myModal2').modal('show');
+		});
+	}
+	
+	
+}
+
 
 </script>
 
 </head>
-<body onload="myFunction();">
+<body>
 
 <header>
-
-{% include 'paytential/navigation.html' %}
-
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="#"><img src="paytential_logo.png" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+		<li><a href="operationunit.html">Home</a></li>
+		<li><a href="create_a_user.html">Create user</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="help.html">Help</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 </header>
 
 <ol class="breadcrumb crumb_style">
@@ -292,8 +444,7 @@ function hide() {
 </ol>
 
 <div class="container-fluid" id="dashboard_grid">
-<!-- <button type="submit" class="btn orange-button explanation"onclick="myFunction()">Dashboard</button> -->
-
+<!-- <button type="submit" class="btn orange-button explanation"onclick="showBaskets()">Dashboard</button> -->
 
 <div class="container demo">
 	
@@ -308,10 +459,14 @@ function hide() {
 				</div>
 
 				<div class="modal-body">
-						<p class="list_space"><em>Molly Villodas</em>: performance 8, potential 9<br>
-						<em>Min Kim</em>: performance 8, potential 8<br>
-						<em>Viseth Sen</em>: performane 7, potential 9<br>
-						<em>Kateryna Turchyna</em>: performance 7, potential 7</p>
+				
+				<select id="sortOrder" onchange="renderList();">
+					<option value="name" selected>Name</option>
+					<option value="performance">Performance</option>
+					<option value="potential">Potential</option>
+				</select>
+					
+						<p class="list_space" id="displayedListOfEmployees"></p>
 				</div>
 
 			</div><!-- modal-content -->
@@ -360,10 +515,6 @@ function hide() {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-		<a class="btn orange-button center-block list-of-employees-modal-button" style="text-decoration: none; width: 50%; height: 30%; margin-bottom: 2%; color: white;  " data-toggle="modal" data-target="#myModal2">List of employees<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
-		 <div id="mycanvas">
-			<canvas id="canvas"  width="500" height="450" class="dashboard" style="filter: blur(0px);"class="center-block"></canvas>
-		</div>
 		<!-- <img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block"> -->
       </div>
       <div class="modal-footer">
@@ -544,7 +695,7 @@ function hide() {
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
-                 <a data-toggle="modal" data-target=".bs-example-modal-lg-1"><img src="http://i.imgur.com/VlvISNB.png" class="dashboard" onclick="function_dash()" class="center-block"></a>
+                 <a data-toggle="modal" data-target=".bs-example-modal-lg-1"><img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block"></a>
 				<img id="grid_8" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="3"/>
             </div>
 
