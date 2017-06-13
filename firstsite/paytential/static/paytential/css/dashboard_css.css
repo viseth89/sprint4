@@ -20,6 +20,97 @@ body {
   filter: blur(2.5px);
 }
 
+.pot{
+	color: gray;
+    position: absolute;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -ms-transform-origin: 20% 40%; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 10% 40%; /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    transform-origin:  50% 100%;
+	z-index: 1;
+	top:50%; 
+	left:-30%;
+}
+
+@media screen and (max-width: 768px) {
+	.pot {
+		left:-55%;
+		top: -10%;
+	}
+}
+
+.perf{
+	position: absolute;
+	z-index: 1;
+	top:87%;
+	left:32%;
+	color: gray;
+}
+
+.one{
+	position: absolute;
+	z-index: 1;
+	top:80%;
+	left:29%;
+	color: gray;
+}
+
+.four{
+	position: absolute;
+	z-index: 1;
+	top:80%;
+	left:49%;
+	color: gray;
+}
+
+.seven{
+	position: absolute;
+	z-index: 1;
+	top:80%;
+	left:69%;
+	color: gray;
+}
+
+.ten{
+	position: absolute;
+	z-index: 1;
+	top:80%;
+	left:89%;
+	color: gray;
+}
+
+.four_vertical, .seven_vertical {
+	color: gray;
+    position: absolute;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -ms-transform-origin: 20% 40%; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 10% 40%; /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    transform-origin:  50% 100%;
+	z-index: 1;
+	top:80%; 
+	left:-10%;
+}
+
+.ten_vertical {
+	color: gray;
+    position: absolute;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -ms-transform-origin: 20% 40%; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 10% 40%; /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    transform-origin:  50% 100%;
+	z-index: 1;
+	top:-11%; 
+	left:-10%;
+}
+
+
+
 .dashboard:hover {
 	-webkit-filter: blur(2px);
   -moz-filter: blur(2px);
@@ -34,17 +125,17 @@ body {
 	box-shadow: 10px 10px 20px grey;
 }
 
-.vertical-text {
-	transform: rotate(90deg);
-	transform-origin: left top 0;
-	position: relative;
-    top: -150px;
-}
+/*.vertical-text {
+	display: flex;
+    flex-flow: row-reverse no-wrap;
+    transform: rotate(90deg);
+	transform-origin: 40% 40%;
+}*/
 
 .char2 {
   text-align: center;
   width: 60%;
-  height: 60%;
+  height: 70%;
   position: absolute;
 	z-index: 1;
 	top: 15%;
@@ -81,5 +172,62 @@ em {
 color: #DADADA;
 text-decoration: none;
 }
+
+.list_space {
+	line-height: 200%;
+}
+
+/*******************************
+* MODAL AS RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+
+*******************************/
+	.modal.left .modal-dialog,
+	.modal.right .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 320px;
+		height: 100%;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+
+	.modal.left .modal-content,
+	.modal.right .modal-content {
+		height: 100%;
+		overflow-y: auto;
+	}
+	
+	.modal.left .modal-body,
+	.modal.right .modal-body {
+		padding: 15px 15px 80px;
+	}
+
+        
+/*Right*/
+	.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+	
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+
+/* ----- MODAL STYLE ----- */
+	.modal-content {
+		border-radius: 0;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom-color: #EEEEEE;
+		background-color: #FAFAFA;
+	}
 
 

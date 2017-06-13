@@ -19,15 +19,15 @@ from . import views
 
 urlpatterns = [
     
-    
-    url(r'^contact/$', views.contact, name='contact'),
+
     url(r'^operation/$', views.operation, name='operation'),
     url(r'^odetails/$', views.odetails, name='odetails'),
-    url(r'^alogin/$', views.alogin, name='alogin'),
     url(r'^alogin/$', views.alogin, name='alogin'),
     url(r'^help/$', views.help, name='help'),
     url(r'^create/$', views.create, name='create'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
     url(r'^ratings/$', views.ratings, name='ratings'),
+    url(r'^viseth/$', views.viseth, name='viseth'),
+
 
 ]

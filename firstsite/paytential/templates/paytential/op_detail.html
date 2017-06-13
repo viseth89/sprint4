@@ -1,42 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
-    {% load staticfiles %}
-  <link rel="stylesheet" href="{% static 'paytential/css/main_css.css' %}" type = "text/css"/>
+{% extends 'paytential/base.html' %}
+<!-- This is how we can include or extend our html/document, here we are including the css and js from another file -->
 
-</head>
-<body>
+{% block content %}
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-	  <a class="navbar-brand" href="#"><img src="{% static 'paytential/images/paytential_logo.png' %}" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-		<li><a href="operationunit.html">Home</a></li>
-		<li><a href="http://127.0.0.1:8000/signup/">Create user</a></li>
-        <li><a href="http://127.0.0.1:8000/dashboard/">Dashboard</a></li>
-        <li><a href="http://127.0.0.1:8000/help/">Help</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+
+{% include 'paytential/navigation.html' %}
+
+
 
 <ol class="breadcrumb crumb_style"">
   <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style">Chicago</a></li>
@@ -48,11 +18,11 @@
 <!--list of names-->
 <section>
 <div class="row">
-<div class="col-xs-6 col-xs-offset-3">
+<div class="col-xs-12 col-md-6 col-md-offset-3">
             <div class="panel panel-default panel-table">
               <div class="panel-heading" style="background:rgba(0,0,0,0.0); border: 0;<!--rgba(218,218,218,0);-->">
 				<div class="row text-center">
-					<h1><img class="apple" src="{% static 'paytential/images/AppleOrange2017.png' %}" style="width: 10%; height: 10%;" align="middle">My Operation Unit</h1>
+					<h1><img class="apple" src="AppleOrange2017.png" style="width: 10%; height: 10%;" align="middle">My Operation Unit</h1>
 					<h5 class="explanation">On this page you can see all employees from this operational uniit. You can access general dashboard view or selected employee rating page</h5>
 				</div>
               </div>
@@ -65,7 +35,7 @@
 			<button class="btn orange-button">
                  <span class="glyphicon glyphicon-search"></span>
             </button>
-			<a class="btn orange-button" href="http://127.0.0.1:8000/dashboard/">
+			<a class="btn orange-button" href="dashboard.html">
 				<em class="fa fa-th"> Dashboard</em>
 			</a>
 	</div>
@@ -80,7 +50,7 @@
                   <tbody>
                           <tr>
 								<td align="center">
-								   <a class="" style="text-decoration: none;" href="http://127.0.0.1:8000/ratings/">Brown Loreina <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+								   <a class="" style="text-decoration: none;" href="correct_rating.html">Brown Loreina <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 								</td>
                           </tr>
 						  
@@ -173,27 +143,28 @@
         </div>
     </section>
 </div>
-	
-	<footer>
+
+<footer>
 	<div class="row text-center">
 		<h5>Subscribe to our monthly newsletter</h5>
 		<form class="form-inline col-xs-12 text-center" method="post" action="....py">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Email Address">
 			</div>
-				<button class="btn orange-button explanation">Send</button>
+				<button type="submit" class="btn orange-button explanation">Send</button>
 		</form>
 	</div>
 	<div class="row">
 		<ul id="social-icons" class="center-block">
-			<li class="social-icons col-xs-3 col-md-2"><a href="https://www.facebook.com/Paylocity" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook-official"></i></a></li>
-			<li class="social-icons col-xs-3 col-md-2"><a href="https://twitter.com/Paylocity" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a></li>
-			<li class="social-icons col-xs-3 col-md-2"><a href="https://www.linkedin.com/company-beta/24614" class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a></li>
-			<li class="social-icons col-xs-3 col-md-2"><a href="https://www.youtube.com/user/PaylocityCorporation" class="btn btn-social-icon btn-youtube"><i class="fa fa-youtube"></i></a></li>
-			<li class="social-icons col-xs-3 col-md-2"><a href="https://plus.google.com/+paylocity" class="btn btn-social-icon btn-google"><i class="fa fa-google"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://www.facebook.com/Paylocity" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook-official"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://twitter.com/Paylocity" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://www.linkedin.com/company-beta/24614" class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://www.youtube.com/user/PaylocityCorporation" class="btn btn-social-icon btn-youtube"><i class="fa fa-youtube"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://plus.google.com/+paylocity" class="btn btn-social-icon btn-google"><i class="fa fa-google"></i></a></li>
 		</ul>
 	</div>
 	<h6 class="text-center">&#9400 Team Unit 2017</h6>
 </footer>
 </body>
 </html>
+{% endblock %}

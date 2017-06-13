@@ -6,33 +6,33 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="canvasjs.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
-    {% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'paytential/css/main_css.css' %}" type = "text/css"/>
+    <link rel="stylesheet" type="text/css" href="main_css.css">
+	<link rel="stylesheet" type="text/css" href="dashboard_css.css">
 	
-	<link rel="stylesheet" href="{% static 'paytential/css/dashboard_css.css' %}" type = "text/css"/>
+	<style>
+		 #canvas {
+            background-image: url("block1.png");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment: fixed;
+			background-size: cover;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+            
+        }
+	</style>
 	
 	<script>
-	/*var nameEmployee = ["Kateryna Turchyna", "Min Kim", "Molly Villodas", "Loreina Brown", "Jeniece Smiley"];
-	var potential = [1,3,3,2,3]; 
-	var performance = [3,3,1,1,2];
-	var arrayLength = nameEmployee.length;
-	var x = 0;*/
-	/*for ( x = 0; x < arrayLength; x++) {
-    alert(nameEmployee[x]);
-	var obj = { name: "Kate", age: 14 };
-	if (obj.name == Kate || obj.age < 20)
-	
-	var arr = [];
-	arr.push(obj);*/
-	
-	
-	var arr = [
+	var allEmployees = [
 		{
 			name: "Kateryna Turchyna",
 			potential: 1,
-			performance: 2,
+			performance: 1,
 		},
 		{
 			name: "Min Kim",
@@ -41,18 +41,23 @@
 		},
 		{
 			name: "Viseth Sen",
-			potential: 2,
-			performance: 2,
+			potential: 8,
+			performance: 7,
 		},
 		{
 			name: "Molly Villodas",
-			potential: 1,
-			performance: 2,
+			potential: 9,
+			performance: 3,
 		},
 		{
 			name: "Jeniece Smiley",
 			potential: 3,
 			performance: 3,
+		},
+		{
+			name: "Endre Roman",
+			potential: 10,
+			performance: 7,
 		},
 		{
 			name: "Loreina Brown",
@@ -61,105 +66,225 @@
 		}
 	];
 	
+	function getIndex(val)
+	{
+		if (val > 0 && val <= 3)
+			return 1;
+		else if (val >=4 && val <= 7)
+			return 2;
+		else
+			return 3;
+	}
+
+	for(a in allEmployees)
+	{
+		//console.log("Old: " + a.potential + "; New: " + getIndex(a.potential));
+		allEmployees[a].potentialOriginal = allEmployees[a].potential;
+		allEmployees[a].potential = getIndex(allEmployees[a].potential);
+		allEmployees[a].performanceOriginal = allEmployees[a].performance;
+		allEmployees[a].performance = getIndex(allEmployees[a].performance);
+	}
+
+	var apple = new Image();
 	
-function myFunction() 
+function showBaskets() 
 {
-	for (a in arr)
+	for (a in allEmployees)
 	{
-		if(arr[a].potential==1 && arr[a].performance==1){
-			document.getElementById("grid_3").style.display = "block";	
+		if(allEmployees[a].potential==1 && allEmployees[a].performance==1){
+			document.getElementById("grid_3").style.display = "block";
 		}
-		else if(arr[a].potential == 2 && arr[a].performance==2){
+		else if(allEmployees[a].potential == 2 && allEmployees[a].performance==2){
 			document.getElementById("grid_5").style.display = "block";
 		}
-		else if(arr[a].potential ==3 && arr[a].performance==3){
+		else if(allEmployees[a].potential ==3 && allEmployees[a].performance==3){
 			document.getElementById("grid_7").style.display = "block";
 		}
-		else if(arr[a].potential == 1 && arr[a].performance == 2){
+		else if(allEmployees[a].potential == 1 && allEmployees[a].performance == 2){
 			document.getElementById("grid_2").style.display = "block";
 		}
-		else if(arr[a].potential == 1 && arr[a].performance == 3){
+		else if(allEmployees[a].potential == 1 && allEmployees[a].performance == 3){
 			document.getElementById("grid_1").style.display = "block";
 		}
-		else if(arr[a].potential == 2 && arr[a].performance == 1){
+		else if(allEmployees[a].potential == 2 && allEmployees[a].performance == 1){
 			document.getElementById("grid_6").style.display = "block";
 		}
-		else if(arr[a].potential == 2 && arr[a].performance == 3){
+		else if(allEmployees[a].potential == 2 && allEmployees[a].performance == 3){
 			document.getElementById("grid_4").style.display = "block";
 		}
-		else if(arr[a].potential == 3 && arr[a].performance == 1){
+		else if(allEmployees[a].potential == 3 && allEmployees[a].performance == 1){
 			document.getElementById("grid_9").style.display = "block";
 		}
-		else if(arr[a].potential == 3 && arr[a].performance == 2){
+		else if(allEmployees[a].potential == 3 && allEmployees[a].performance == 2){
 			document.getElementById("grid_8").style.display = "block";
 		}
 	}
 }
-	
-	
 
+var gridElements = document.getElementsByClassName("char2");
 	
-	/*for ( x=0; x < nameEmployee.length; x++) {
-		alert(nameEmployee[x] +","+ potential[x] + [x]);
-	}*/
+var currentListOfEmployees = null;
 
-	
-	/*function myFunction() 
+function employeeMatcheshSpecifiedIndicators(employee, performance, potential) {
+	console.log("p:" +performance + "po:" + potential + "; e: " + employee);
+	if(employee.potential == potential && employee.performance == performance)
 	{
-		for ( x=0; x < nameEmployee.length; x++) {
-		if(potential[x]==1&&performance[x]==1){
-			document.getElementById("grid_3").style.display = "block";	
-		}
-		else if(potential[x]==2&&performance[x]==2){
-			document.getElementById("grid_5").style.display = "block";
-		}
-		else if(potential[x]==3&&performance[x]==3){
-			document.getElementById("grid_7").style.display = "block";
-		}
-		else if(potential[x]==1&&performance[x]==2){
-			document.getElementById("grid_2").style.display = "block";
-		}
-		else if(potential[x]==1&&performance[x]==3){
-			document.getElementById("grid_1").style.display = "block";
-		}
-		else if(potential[x]==2&&performance[x]==1){
-			document.getElementById("grid_6").style.display = "block";
-		}
-		else if(potential[x]==2&&performance[x]==3){
-			document.getElementById("grid_4").style.display = "block";
-		}
-		else if(potential[x]==3&&performance[x]==1){
-			document.getElementById("grid_9").style.display = "block";
-		}
-		else if(potential[x]==3&&performance[x]==2){
-			document.getElementById("grid_8").style.display = "block";
+		return true;
+	}
+	return false;	
+}
+
+
+function employeeTemplate(obj) {
+	var str = "<div>";
+	str += "<em>" +  obj.name + "</em>" + " : Performance: " + obj.performanceOriginal + "; Potential: " + obj.potentialOriginal + ";";
+	str += "</div>";
+	return str;
+}
+
+function employeesTemplate(arr) {
+	var str = "";
+	for (p in arr) {
+		str += employeeTemplate(arr[p]);
+	}
+	return str;
+}
+
+
+
+function setListOfEmployees(element) {
+	var employees = [];
+	for(employee in allEmployees) {
+		if(employeeMatcheshSpecifiedIndicators(allEmployees[employee], element.getAttribute("perf"), element.getAttribute("poten"))) {
+			employees.push(allEmployees[employee]);
+			console.log("Employee is added");
 		}
 	}
-	x = 0;
+	currentListOfEmployees = employees;
+}
+<!-- underscore js templating -->
+/*var tpl = _.template("<div>Name: <%= name %>; Performance: <%= performance %>; Potential: <% potential %>;</div>");
+
+var str = "";
+for(p in arr) {
+	str += tpl(arr[p]);
+}
+el.innerHTML = str;*/
+
+/*
+//handle sorting by: lastname, performance, potential
+	function get_radio_value() {
+            var inputs = document.getElementsByName("inlineRadioOptions");
+            for (var i = 0; i < inputs.length; i++) {
+              if (inputs[i].checked) {
+                return inputs[i].value;
+              }
+            }
+          }
+
+    function sortBy() {
+        var id = get_radio_value();
+		if ( id == "inlineRadio1") {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.name < b.name) return -1;
+			if(a.name > b.name) return 1;
+			return 0;
+		})}else if (id == "inlineRadio2") {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.performance < b.performance) return -1;
+			if(a.performance > b.performance) return 1;
+			return 0;
+		})}else {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.potential < b.potential) return -1;
+			if(a.potential > b.potential) return 1;
+			return 0;
+		})
+		}
+}
+*/
+
+/* function sortBy() {
+ if(document.getElementById("inlineRadio1") == document.getElementById("inlineRadio1").checked ){
+	currentListOfEmployees.sort(function(a, b){
+			if(a.name < b.name) return -1;
+			if(a.name > b.name) return 1;
+			return 0;
+		})}else if (document.getElementById("inlineRadio2") == document.getElementById("inlineRadio2").checked) {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.performance < b.performance) return -1;
+			if(a.performance > b.performance) return 1;
+			return 0;
+		})}else {
+			currentListOfEmployees.sort(function(a, b){
+			if(a.potential < b.potential) return -1;
+			if(a.potential > b.potential) return 1;
+			return 0;
+		})
 	}
-*/	
+ }*/
+
 function hover(o) {
-	var potential = o.getAttribute("poten");
+	/*var potential = o.getAttribute("poten");
 	var performance = o.getAttribute("perf");
-	
-	var filteredArr = arr.filter(function(a) { return (a.potential == potential) && (a.performance == performance); });
-	
-	var name = filteredArr.map(function(a) { return a.name; }).join("<br>");
-	
-	//var name = filteredArr.name;
-	document.getElementById('info').innerHTML = '<p>Potential </p>' + potential+ '<p>performance </p>' + performance + '<p>employees:</p>' +'<em>'+name+'</em>';
+	var filteredArr = allEmployees.filter(function(a) { return (a.potential == potential) && (a.performance == performance); });
+	var name = filteredArr.map(function(a) { return a.name + "(" + a.potentialOriginal + ", " + a.performanceOriginal + ")"; }).join("<br>");*/
+	var desk = o.getAttribute("desk");
+	document.getElementById('info').innerHTML = /*'<p>Potential </p>' + potential+ '<p>performance </p>' + performance + '<p>employees:</p>' +'<em>'+name+'</em>*/ desk;
 	document.getElementById('info').style.display = 'block';
-	/*document.getElementById('info').innerHTML = nameEmployee[x] +'<p>Potential </p>' + potential[x]+ '<p>performance </p>' + performance[x];
-	document.getElementById('info').style.display = 'block';
-	console.log(potential, performance);*/
-	
 }
-
-
-
 
 function hide() {
 	document.getElementById('info').style.display = 'none';
+}
+
+function sortList() {
+	var sortOrder = document.getElementById("sortOrder").value;
+	console.log("sorted by: " + sortOrder);
+	if (sortOrder == "name") {
+		currentListOfEmployees.sort(function(a, b){
+			if(a.name < b.name) return -1;
+			if(a.name > b.name) return 1;
+			return 0;
+		});
+	} else if (sortOrder == "performance") {
+		currentListOfEmployees.sort(function(a, b){
+			if(a.performanceOriginal < b.performanceOriginal) return -1;
+			if(a.performanceOriginal > b.performanceOriginal) return 1;
+			return 0;
+		});
+		console.log("sort is completed");
+		console.log(JSON.stringify(currentListOfEmployees));
+	} else if (sortOrder == "potential") {
+		currentListOfEmployees.sort(function(a, b){
+			if(a.potentialOriginal < b.potentialOriginal) return -1;
+			if(a.potentialOriginal > b.potentialOriginal) return 1;
+			return 0;
+		});
+	}
+}
+
+function renderList() {
+	sortList();
+	// populate modal window with data
+	document.getElementById('displayedListOfEmployees').innerHTML = employeesTemplate(currentListOfEmployees);
+}
+
+
+window.onload = function() {
+	showBaskets();
+	
+	// adds event listener to each cell of the grid
+	for (var i = 0; i < gridElements.length; i++) {
+		gridElements[i].addEventListener("click", function(){
+			setListOfEmployees(this)
+			renderList();
+			// shows modal window
+			$('#myModal2').modal('show');
+		});
+	}
+	
+	
 }
 
 
@@ -179,15 +304,15 @@ function hide() {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="#"><img src="{% static 'paytential/images/paytential_logo.png' %}" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
+	  <a class="navbar-brand" href="#"><img src="paytential_logo.png" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-		<li><a href="http://127.0.0.1:8000/home/">Home</a></li>
+		<li><a href="operationunit.html">Home</a></li>
 		<li><a href="create_a_user.html">Create user</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="http://127.0.0.1:8000/help/">Help</a></li>
+        <li><a href="help.html">Help</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -201,7 +326,38 @@ function hide() {
 </ol>
 
 <div class="container-fluid" id="dashboard_grid">
-<button onclick="myFunction()">Graph</button>
+<!-- <button type="submit" class="btn orange-button explanation"onclick="showBaskets()">Dashboard</button> -->
+
+<div class="container demo">
+	
+	<!-- Modal list of employees in the one grid-->
+	<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel2" style="color: #FF5511; display: inline-block;">List of employees in this grid</h4>
+					<img src="AppleOrange2017.png" style="width: 20%; height: 20%; float: left;" class="img-responsive">
+				</div>
+
+				<div class="modal-body">
+				
+				<select id="sortOrder" onchange="renderList();">
+					<option value="name" selected>Name</option>
+					<option value="performance">Performance</option>
+					<option value="potential">Potential</option>
+				</select>
+					
+						<p class="list_space" id="displayedListOfEmployees"></p>
+				</div>
+
+			</div><!-- modal-content -->
+		</div><!-- modal-dialog -->
+	</div><!-- modal -->
+	
+	
+</div><!-- container -->
 
 
 <!-- Large modal -->
@@ -214,7 +370,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">High Pro Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Promotion Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -237,13 +393,12 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Utility Pro</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Adapted Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-		<img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block">
+		<!-- <img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block"> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -252,7 +407,7 @@ function hide() {
 </div>
 </div>
 
-<div class="modal fade bs-example-modal-lg-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal fade bs-example-modal-lg-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -260,7 +415,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Consistent Star</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Guidance Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -283,7 +438,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Solid Performers Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Monitor Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -306,7 +461,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Utility Player Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Priorize Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -329,7 +484,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Future Star Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Elevated Training Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -352,7 +507,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Take Action Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Implement Solution Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -375,13 +530,13 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Inconsistent Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Define Goals Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-		<img src="" class="dashboard" class="center-block">
+		<img src="http://i.imgur.com/hnUaaxX.png" class="dashboard" class="center-block">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -398,7 +553,7 @@ function hide() {
 			  <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style_modal">Chicago</a></li>
 			  <li class="breadcrumb-item"><a href="op_detail.html" class="crumb_style_modal">List of employees</a></li>
 			  <li class="breadcrumb-item"><a href="dashboard.html" class="crumb_style_modal">Dashboard</a></li>
-			  <li class="breadcrumb-item active" style="color: orange;">Rough Dimond Quadrant</li>
+			  <li class="breadcrumb-item active" style="color: orange;">Succession Planning Grid</li>
 			</ol>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
@@ -419,17 +574,21 @@ function hide() {
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg"><img src="http://i.imgur.com/EI0mlEJ.png" class="dashboard" class="center-block"></a>
-				<img id="grid_9" onmouseover="hover(this)" onmouseout="hide(this)" class="char2 " src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="1" poten="3"/>
+			<strong><h4 class="seven_vertical">7</h4></strong>
+				<strong><h4 class="ten_vertical">10</h4></strong>
+				<img id="grid_9" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" style="width: 40%; height: 50%; top:25%;
+	left: 20%;"src="basket_of_apples.png" perf="1" poten="3" desk="Poor performance, high leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                  <a data-toggle="modal" data-target=".bs-example-modal-lg-1"><img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block"></a>
-				<img id="grid_8" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="3"/>
+				<img id="grid_8" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" style="width: 50%; height: 60%; top:25%;
+	left: 20%;" src="basket_of_apples.png" perf="2" poten="3" desk="Good performance, high leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                  <a data-toggle="modal" data-target=".bs-example-modal-lg-2"><img src="http://i.imgur.com/5NuWzAb.png" class="dashboard" class="center-block"></a>
-				<img id="grid_7" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="3" poten="3"/>
+				<img id="grid_7" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="3" poten="3" desk="Outstanding performance, high leadership potential"/>
             </div>
 			
 			<div class="col-xs-1" id="info"></div>
@@ -439,18 +598,19 @@ function hide() {
 	<div class="row">
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
+				<strong><h4 class="four_vertical">4</h4></strong>
                  <a data-toggle="modal" data-target=".bs-example-modal-lg-3"><img src="http://i.imgur.com/XUWZN45.png" class="dashboard"></a>
-				<img id="grid_6" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="1" poten="2"/>
+				<img id="grid_6" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="1" poten="2" desk="Poor performance, limited leadership potential"/>
             </div>
 
-            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
+            <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr" onclick="function_dash()">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-4"><img src="http://i.imgur.com/pHmYpvH.png" class="dashboard"></a>
-				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="2" poten="2"/>
+				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="2" poten="2" desk="Good performance, moderate leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-5"><img src="http://i.imgur.com/I16tg3m.png" class="dashboard"></a>
-				<img id="grid_4" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg"  perf="3" poten="2"/>
+				<img id="grid_4" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="3" poten="2" desk="Outstanding performance, moderate leadership potential"/>
             </div>
         </div>
     </div>
@@ -458,24 +618,29 @@ function hide() {
 	<div class="row">
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
+			<strong><h4 class="pot vertical-text">←potential</h4></strong>
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-6"><img src="http://i.imgur.com/8koCOcD.png" class="dashboard"></a>
-				<img id="grid_3" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="1" poten="1"/>
-				<!--<h4 class="def-text">performance →</h4>
-				<h4 class="def-text vertical-text">←potential</h4>-->
+				<img id="grid_3" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="1" poten="1" desk="Poor performance, limited leadership potential"/>
 				
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-7"><img src="http://i.imgur.com/hnUaaxX.png" class="dashboard"></a>
-				<img id="grid_2" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="1"/>
+				<img id="grid_2" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="1" desk="Good performance,limited leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-8"> <img src="http://i.imgur.com/Jp5Cj1g.png" class="dashboard"></a>
-				<img id="grid_1" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="https://cdn0.rubylane.com/shops/hannahshouseantiques/9423.1L.jpg" perf="2" poten="1"/>
+				<img id="grid_1" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="3" poten="1" desk="Outstanding performance,limited leadership potential"/>
             </div>
         </div>
     </div>
+	
+	<div class="row">
+		<div class="col-xs-10">
+	<strong><h4 class="one">1</h4></strong>	<h4 class="perf">performance →</h4> <strong><h4 class="four">4</h4></strong> <strong><h4 class="seven">7</h4></strong> <strong><h4 class="ten">10</h4></strong>
+		</div>
+	</div>
 </div>
 
 <footer>
