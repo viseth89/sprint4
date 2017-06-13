@@ -1,18 +1,48 @@
-{% extends 'paytential/base.html' %}
-<!-- This is how we can include or extend our html/document, here we are including the css and js from another file -->
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="main_css.css">
+</head>
 
-{% block content %}
-
-
-{% include 'paytential/navigation.html' %}
-    {% load staticfiles %}
-
+<body>
+<!--Nav Bar-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="#"><img src="paytential_logo.png" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+		<li><a href="operationunit.html">Home</a></li>
+		<li><a href="create_a_user.html">Create user</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="help.html">Help</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	
 <!--FAQ template code begins-->
 <div class="container"> 
 <div class="panel-group col-md-8 col-md-offset-2 center-block" id="accordion" role="tablist" aria-multiselectable="true" style="float: none;
     margin: 0 auto;">
 	<div class="text-center">
-		<h1><img class="apple" src="{% static 'paytential/images/AppleOrange2017.png' %}" style="width: 10%; height: 10%;"> Help</h1>
+		<h1><img class="apple" src="AppleOrange2017.png" style="width: 10%; height: 10%;"> Help</h1>
 	</div>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -24,7 +54,7 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-       <img class = "img-responsive center-block" src="{% static 'paytential/images/9box.jpg' %}">
+       <img class = "img-responsive center-block" src="9box.jpg">
       -The 9-box grid is an industry standard for individual assessment tool that evaluates both an employee’s current contribution to the organization and his or her potential level of contribution to the organization. The 9-box grid is a simple table graph that rates “potential” on the Y (vertical axis) and “performance” on the X (horizontal axis). In other words, the vertical columns of the grid identify an individual employee’s growth potential within the organization and the horizontal rows identify whether the employee is below, meeting or exceeding performance expectations in his or her current role.
 	  </div>
     </div>
@@ -100,4 +130,3 @@
 
 </body>
 </html>
-{% endblock %}

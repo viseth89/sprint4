@@ -49,6 +49,68 @@ body {
 	color: gray;
 }
 
+.one{
+	position: absolute;
+	z-index: 1;
+	top:80%;
+	left:29%;
+	color: gray;
+}
+
+.four{
+	position: absolute;
+	z-index: 1;
+	top:80%;
+	left:49%;
+	color: gray;
+}
+
+.seven{
+	position: absolute;
+	z-index: 1;
+	top:80%;
+	left:69%;
+	color: gray;
+}
+
+.ten{
+	position: absolute;
+	z-index: 1;
+	top:80%;
+	left:89%;
+	color: gray;
+}
+
+.four_vertical, .seven_vertical {
+	color: gray;
+    position: absolute;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -ms-transform-origin: 20% 40%; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 10% 40%; /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    transform-origin:  50% 100%;
+	z-index: 1;
+	top:80%; 
+	left:-10%;
+}
+
+.ten_vertical {
+	color: gray;
+    position: absolute;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -ms-transform-origin: 20% 40%; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 10% 40%; /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    transform-origin:  50% 100%;
+	z-index: 1;
+	top:-11%; 
+	left:-10%;
+}
+
+
+
 .dashboard:hover {
 	-webkit-filter: blur(2px);
   -moz-filter: blur(2px);

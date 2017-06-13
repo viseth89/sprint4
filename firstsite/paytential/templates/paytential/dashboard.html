@@ -55,6 +55,11 @@
 			performance: 3,
 		},
 		{
+			name: "Endre Roman",
+			potential: 10,
+			performance: 7,
+		},
+		{
 			name: "Loreina Brown",
 			potential: 2,
 			performance: 2,
@@ -82,116 +87,6 @@
 
 	var apple = new Image();
 	
-	/*function function_dash() 
-{
-	for (a in allEmployees)
-	{
-	
-		if (allEmployees[a].potential ==3 && allEmployees[a].performance==3){
-			 function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 400, 10, 100, 100);
-		}
-		image();
-			
-		}else if (allEmployees[a].potential == 2 && allEmployees[a].performance==2) {
-			 function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 200, 170, 100, 100);
-		}
-		image();
-		}else if (allEmployees[a].potential==1 && allEmployees[a].performance==1){
-			function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 10, 350, 100, 100);
-		}
-		image();
-		}else if (allEmployees[a].potential == 1 && allEmployees[a].performance==2) {
-			 function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 10, 170, 100, 100);
-		}
-		image();
-		}else if (allEmployees[a].potential == 3 && allEmployees[a].performance==2) {
-			 function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 350, 170, 100, 100);
-		}
-		image();
-		}else if (allEmployees[a].potential == 3 && allEmployees[a].performance==1) {
-			 function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 10, 170, 100, 100);
-		}
-		image();
-		}else if (allEmployees[a].potential == 1 && allEmployees[a].performance==3) {
-			 function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 10, 10, 100, 100);
-		}
-		image();
-		}else if (allEmployees[a].potential == 2 && allEmployees[a].performance==3) {
-			 function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 170, 10, 100, 100);
-		}
-		image();
-		}else if (allEmployees[a].potential == 2 && allEmployees[a].performance==1) {
-			 function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 170, 350, 100, 100);
-		}
-		image();
-		}
-	
-	}
-}*/
-
 function showBaskets() 
 {
 	for (a in allEmployees)
@@ -266,19 +161,6 @@ function setListOfEmployees(element) {
 		}
 	}
 	currentListOfEmployees = employees;
-	
-	/*if ( currentListOfEmployees.length > 1) {
-		function image(){
-			apple.src = "AppleOrange2017.png";
-			window.requestAnimationFrame(draw);
-		}
-		function draw() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			ctx.globalCompositeOperation = 'destination-over';
-			ctx.drawImage(apple, 100, 10, 100, 100);
-		}
-		image();
-	}*/
 }
 <!-- underscore js templating -->
 /*var tpl = _.template("<div>Name: <%= name %>; Performance: <%= performance %>; Potential: <% potential %>;</div>");
@@ -343,12 +225,12 @@ el.innerHTML = str;*/
  }*/
 
 function hover(o) {
-	var potential = o.getAttribute("poten");
-	
+	/*var potential = o.getAttribute("poten");
 	var performance = o.getAttribute("perf");
 	var filteredArr = allEmployees.filter(function(a) { return (a.potential == potential) && (a.performance == performance); });
-	var name = filteredArr.map(function(a) { return a.name + "(" + a.potentialOriginal + ", " + a.performanceOriginal + ")"; }).join("<br>");
-	document.getElementById('info').innerHTML = /*'<p>Potential </p>' + potential+ '<p>performance </p>' + performance + '<p>employees:</p>' +*/'<em>'+name+'</em>';
+	var name = filteredArr.map(function(a) { return a.name + "(" + a.potentialOriginal + ", " + a.performanceOriginal + ")"; }).join("<br>");*/
+	var desk = o.getAttribute("desk");
+	document.getElementById('info').innerHTML = /*'<p>Potential </p>' + potential+ '<p>performance </p>' + performance + '<p>employees:</p>' +'<em>'+name+'</em>*/ desk;
 	document.getElementById('info').style.display = 'block';
 }
 
@@ -455,7 +337,8 @@ window.onload = function() {
 
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel2" style="color: #FF5511;">High Pro Grid</h4>
+					<h4 class="modal-title" id="myModalLabel2" style="color: #FF5511; display: inline-block;">List of employees in this grid</h4>
+					<img src="AppleOrange2017.png" style="width: 20%; height: 20%; float: left;" class="img-responsive">
 				</div>
 
 				<div class="modal-body">
@@ -653,7 +536,7 @@ window.onload = function() {
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-		<img src="" class="dashboard" class="center-block">
+		<img src="http://i.imgur.com/hnUaaxX.png" class="dashboard" class="center-block">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -691,17 +574,21 @@ window.onload = function() {
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg"><img src="http://i.imgur.com/EI0mlEJ.png" class="dashboard" class="center-block"></a>
-				<img id="grid_9" onmouseover="hover(this)" onmouseout="hide(this)" class="char2 " src="basket_of_apples.png" perf="1" poten="3"/>
+			<strong><h4 class="seven_vertical">7</h4></strong>
+				<strong><h4 class="ten_vertical">10</h4></strong>
+				<img id="grid_9" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" style="width: 40%; height: 50%; top:25%;
+	left: 20%;"src="basket_of_apples.png" perf="1" poten="3" desk="Poor performance, high leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                  <a data-toggle="modal" data-target=".bs-example-modal-lg-1"><img src="http://i.imgur.com/VlvISNB.png" class="dashboard" class="center-block"></a>
-				<img id="grid_8" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="3"/>
+				<img id="grid_8" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" style="width: 50%; height: 60%; top:25%;
+	left: 20%;" src="basket_of_apples.png" perf="2" poten="3" desk="Good performance, high leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                  <a data-toggle="modal" data-target=".bs-example-modal-lg-2"><img src="http://i.imgur.com/5NuWzAb.png" class="dashboard" class="center-block"></a>
-				<img id="grid_7" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="3" poten="3"/>
+				<img id="grid_7" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="3" poten="3" desk="Outstanding performance, high leadership potential"/>
             </div>
 			
 			<div class="col-xs-1" id="info"></div>
@@ -711,18 +598,19 @@ window.onload = function() {
 	<div class="row">
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
+				<strong><h4 class="four_vertical">4</h4></strong>
                  <a data-toggle="modal" data-target=".bs-example-modal-lg-3"><img src="http://i.imgur.com/XUWZN45.png" class="dashboard"></a>
-				<img id="grid_6" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="1" poten="2"/>
+				<img id="grid_6" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="1" poten="2" desk="Poor performance, limited leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr" onclick="function_dash()">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-4"><img src="http://i.imgur.com/pHmYpvH.png" class="dashboard"></a>
-				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="2" poten="2"/>
+				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="2" poten="2" desk="Good performance, moderate leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-5"><img src="http://i.imgur.com/I16tg3m.png" class="dashboard"></a>
-				<img id="grid_4" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="3" poten="2"/>
+				<img id="grid_4" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="3" poten="2" desk="Outstanding performance, moderate leadership potential"/>
             </div>
         </div>
     </div>
@@ -730,27 +618,27 @@ window.onload = function() {
 	<div class="row">
         <div class="list-group">
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 col-lg-offset-3 dashboard_wr">
-			<h4 class="pot vertical-text">←potential</h4>
+			<strong><h4 class="pot vertical-text">←potential</h4></strong>
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-6"><img src="http://i.imgur.com/8koCOcD.png" class="dashboard"></a>
-				<img id="grid_3" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="1" poten="1"/>
+				<img id="grid_3" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="1" poten="1" desk="Poor performance, limited leadership potential"/>
 				
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-7"><img src="http://i.imgur.com/hnUaaxX.png" class="dashboard"></a>
-				<img id="grid_2" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="1"/>
+				<img id="grid_2" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="1" desk="Good performance,limited leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-8"> <img src="http://i.imgur.com/Jp5Cj1g.png" class="dashboard"></a>
-				<img id="grid_1" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="2" poten="1"/>
+				<img id="grid_1" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png" perf="3" poten="1" desk="Outstanding performance,limited leadership potential"/>
             </div>
         </div>
     </div>
 	
 	<div class="row">
 		<div class="col-xs-10">
-			<h4 class="perf">performance →</h4>
+	<strong><h4 class="one">1</h4></strong>	<h4 class="perf">performance →</h4> <strong><h4 class="four">4</h4></strong> <strong><h4 class="seven">7</h4></strong> <strong><h4 class="ten">10</h4></strong>
 		</div>
 	</div>
 </div>
