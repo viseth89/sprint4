@@ -31,13 +31,18 @@
 	var allEmployees = [
 		{
 			name: "Kateryna Turchyna",
-			potential: 1,
-			performance: 1,
+			potential: 6,
+			performance: 6,
+		},
+		{
+			name: "Dan Rodgers",
+			potential: 9,
+			performance: 10,
 		},
 		{
 			name: "Min Kim",
-			potential: 3,
-			performance: 3,
+			potential: 9,
+			performance: 8,
 		},
 		{
 			name: "Viseth Sen",
@@ -47,12 +52,12 @@
 		{
 			name: "Molly Villodas",
 			potential: 9,
-			performance: 3,
+			performance: 7,
 		},
 		{
 			name: "Jeniece Smiley",
-			potential: 3,
-			performance: 3,
+			potential: 10,
+			performance: 10,
 		},
 		{
 			name: "Endre Roman",
@@ -61,8 +66,8 @@
 		},
 		{
 			name: "Loreina Brown",
-			potential: 2,
-			performance: 2,
+			potential: 9,
+			performance: 9,
 		}
 	];
 	
@@ -171,38 +176,7 @@ for(p in arr) {
 }
 el.innerHTML = str;*/
 
-/*
-//handle sorting by: lastname, performance, potential
-	function get_radio_value() {
-            var inputs = document.getElementsByName("inlineRadioOptions");
-            for (var i = 0; i < inputs.length; i++) {
-              if (inputs[i].checked) {
-                return inputs[i].value;
-              }
-            }
-          }
 
-    function sortBy() {
-        var id = get_radio_value();
-		if ( id == "inlineRadio1") {
-			currentListOfEmployees.sort(function(a, b){
-			if(a.name < b.name) return -1;
-			if(a.name > b.name) return 1;
-			return 0;
-		})}else if (id == "inlineRadio2") {
-			currentListOfEmployees.sort(function(a, b){
-			if(a.performance < b.performance) return -1;
-			if(a.performance > b.performance) return 1;
-			return 0;
-		})}else {
-			currentListOfEmployees.sort(function(a, b){
-			if(a.potential < b.potential) return -1;
-			if(a.potential > b.potential) return 1;
-			return 0;
-		})
-		}
-}
-*/
 
 /* function sortBy() {
  if(document.getElementById("inlineRadio1") == document.getElementById("inlineRadio1").checked ){
@@ -326,7 +300,6 @@ window.onload = function() {
 </ol>
 
 <div class="container-fluid" id="dashboard_grid">
-<!-- <button type="submit" class="btn orange-button explanation"onclick="showBaskets()">Dashboard</button> -->
 
 <div class="container demo">
 	
@@ -614,7 +587,8 @@ window.onload = function() {
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr" onclick="function_dash()">
                 <a data-toggle="modal" data-target=".bs-example-modal-lg-4"><img src="http://i.imgur.com/pHmYpvH.png" class="dashboard"></a>
-				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  perf="2" poten="2" desk="Good performance, moderate leadership potential"/>
+				<img id="grid_5" onmouseover="hover(this)" onmouseout="hide(this)" class="char2" src="basket_of_apples.png"  style="width: 40%; height: 50%; top:25%;
+	left: 30%;"perf="2" poten="2" desk="Good performance, moderate leadership potential"/>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-med-4 col-lg-2 dashboard_wr">
