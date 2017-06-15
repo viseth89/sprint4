@@ -275,6 +275,45 @@ h5, h6 {
 	padding: 2em;
 }
 
+
+/*Media Queries*/
+
+/* Small devices (tablets, 768px and up) */
+ 
+ @media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.2em;
+	}
+	
+	h5 {
+		font-size: 1em;
+	}
+	
+	.row {
+		margin-right: 0;
+		margin-left: 0;	
+	}
+	
+	.col-xs-12 {
+		margin: 0;
+	}
+	
+	
+.rating:not(:checked) > label {
+    float:right;
+    padding:0.1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:150%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+	
+ }
+
 /*div.stars {
 
   width: 300px;
