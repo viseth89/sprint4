@@ -1,12 +1,39 @@
-{% extends 'paytential/base.html' %}
-<!-- This is how we can include or extend our html/document, here we are including the css and js from another file -->
-
-{% block content %}
-
-
-{% include 'paytential/navigation.html' %}
-
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="main_css.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="#"><img src="paytential_logo.png" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+		<li><a href="operationunit.html">Home</a></li>
+		<li><a href="create_a_user.html">Create user</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="help.html">Help</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 <ol class="breadcrumb crumb_style">
   <li class="breadcrumb-item"><a href="operationunit.html" class="crumb_style">Chicago</a></li>
@@ -15,6 +42,16 @@
   <li class="breadcrumb-item"><a href="#" class="crumb_style">Exceeds Expectations Grid</a></li>
   <li class="breadcrumb-item active" style="color: orange;">Employee: Loreina Brown</li>
 </ol>
+
+
+
+<!--V, HERE I CREATED 2 HIDDEN INPUTS, IT IS PLACEHOLDERS FOR YOURS!!-->
+
+<input type="hidden" name="test1" id="test1">
+<input type="hidden" name="test1" id="test2">
+		
+		
+		
 		
   <div class="container">
   <section>
@@ -62,44 +99,42 @@
 			  </div>
 			</div>
 			
-			
-			
-			<form method="post" class="text-center" action="ratings.php">
+		
+			<p id="display"></p>
+			<form method="post" action=".py" class="text-center">
 				<div class="rating first text-center" style="display:inline-block;">
 					<legend><h4>Performance</h4></legend>
-					<input type="radio" id="star1" class="good" name="rating" value="1" checked /><label for="star1`" title="10"></label>
-					<input type="radio" id="star2" class="good" name="rating" value="2" /><label for="star2" title="9"></label>
-					<input type="radio" id="star3" class="good" name="rating" value="3" /><label for="star3" title="8"></label>
-					<input type="radio" id="star4" class="satis" name="rating" value="4" /><label for="star4" title="7"></label>
-					<input type="radio" id="star5" class="satis" name="rating" value="5" /><label for="star5" title="6"></label>
-					<input type="radio" id="star6" class="satis" name="rating" value="6" /><label for="star6" title="5"></label>
-					<input type="radio" id="star7" class="poor" name="rating" value="7" /><label for="star7" title="4"></label>
-					<input type="radio" id="star8" class="poor" name="rating" value="8" /><label for="star8" title="3"></label>
-					<input type="radio" id="star9" class="poor" name="rating" value="9" /><label for="star9" title="2"></label>
-					<input type="radio" id="star10" class="poor" name="rating" value="10" /><label for="star10" title="1"></label>
+					<input type="radio" id="star1" class="good performance_rating" name="rating" value="10"   onclick="proc(this)"checked /><label for="star1`" title="10"></label>
+					<input type="radio" id="star2" class="good performance_rating" name="rating" value="9"   onclick="proc(this)"/><label for="star2" title="9"></label>
+					<input type="radio" id="star3" class="good performance_rating" name="rating" value="8"   onclick="proc(this)"/><label for="star3" title="8"></label>
+					<input type="radio" id="star4" class="satis performance_rating" name="rating" value="7"   onclick="proc(this)"/><label for="star4" title="7"></label>
+					<input type="radio" id="star5" class="satis performance_rating" name="rating" value="6"  onclick="proc(this)" /><label for="star5" title="6"></label>
+					<input type="radio" id="star6" class="satis performance_rating" name="rating" value="5"  onclick="proc(this)" /><label for="star6" title="5"></label>
+					<input type="radio" id="star7" class="poor performance_rating" name="rating" value="4"  onclick="proc(this)" /><label for="star7" title="4"></label>
+					<input type="radio" id="star8" class="poor performance_rating" name="rating" value="3"  onclick="proc(this)" /><label for="star8" title="3"></label>
+					<input type="radio" id="star9" class="poor performance_rating" name="rating" value="2"  onclick="proc(this)" /><label for="star9" title="2"></label>
+					<input type="radio" id="star10" class="poor performance_rating" name="rating" value="1"  onclick="proc(this)" /><label for="star10" title="1"></label>
 				</div>
 			</form>
-			
-			
-			<form class="text-center" method="post" action="ratings.php">
+			<form class="text-center" method="post" action="ratings.py">
 				<div class="rating second text-center" style="display:inline-block;">
 					<legend><h4>Potential</h4></legend>
-					<input type="radio" id="star1-2" name="ratingtwo" value="1" /><label for="star1-2`" title="10"></label>
-					<input type="radio" id="star2-2" name="ratingtwo" value="2" /><label for="star2-2" title="9"></label>
-					<input type="radio" id="star3-2" name="ratingtwo" value="3" /><label for="star3-2" title="8"></label>
-					<input type="radio" id="star4-2" name="ratingtwo" value="4" /><label for="star4-2" title="7"></label>
-					<input type="radio" id="star5-2" name="ratingtwo" value="5" /><label for="star5-2" title="6"></label>
-					<input type="radio" id="star6-2" name="ratingtwo" value="6" /><label for="star6-2" title="5"></label>
-					<input type="radio" id="star7-2" name="ratingtwo" value="7" /><label for="star7-2" title="4"></label>
-					<input type="radio" id="star8-2" name="ratingtwo" value="8" /><label for="star8-2" title="3"></label>
-					<input type="radio" id="star9-2" name="ratingtwo" value="9" /><label for="star9-2" title="2"></label>
-					<input type="radio" id="star10-2" name="ratingtwo" value="10" /><label for="star10-2" title="1"></label>
+					<input type="radio" id="star1-2" name="ratingtwo" value="10" onclick="proc_for_potential(this)" /><label for="star1-2`" title="10"></label>
+					<input type="radio" id="star2-2" name="ratingtwo" value="9" onclick="proc_for_potential(this)" /><label for="star2-2" title="9"></label>
+					<input type="radio" id="star3-2" name="ratingtwo" value="8" onclick="proc_for_potential(this)" /><label for="star3-2" title="8"></label>
+					<input type="radio" id="star4-2" name="ratingtwo" value="7" onclick="proc_for_potential(this)" /><label for="star4-2" title="7"></label>
+					<input type="radio" id="star5-2" name="ratingtwo" value="6" onclick="proc_for_potential(this)" /><label for="star5-2" title="6"></label>
+					<input type="radio" id="star6-2" name="ratingtwo" value="5"onclick="proc_for_potential(this)" /><label for="star6-2" title="5"></label>
+					<input type="radio" id="star7-2" name="ratingtwo" value="4" onclick="proc_for_potential(this)" /><label for="star7-2" title="4"></label>
+					<input type="radio" id="star8-2" name="ratingtwo" value="3" onclick="proc_for_potential(this)"/><label for="star8-2" title="3"></label>
+					<input type="radio" id="star9-2" name="ratingtwo" value="2" onclick="proc_for_potential(this)"/><label for="star9-2" title="2"></label>
+					<input type="radio" id="star10-2" name="ratingtwo" value="1" onclick="proc_for_potential(this)"/><label for="star10-2" title="1"></label>
 				</div>
 			
 			 <div class="form-group">
 			<textarea class="form-control comment" rows="3" placeholder="Special comments about this employee" id="comment"></textarea>
 			</div>
-			<button type="submit" style="margin: 10px auto;" class="btn center-block orange-button"><h4>Submit</h4></button>
+			<a href="rating_ch.html" style="width: 15%;margin: 10px auto;" onclick="showInput()" class="btn center-block orange-button"><h4>Submit</h4></a>
 			</form>
 			
 			<div class="comments center-block">
@@ -143,7 +178,22 @@
 	</div>
 	<h6 class="text-center">&#9400 Team Unit 2017</h6>
 </footer>
+
+<script>
+function proc(el) {
+	$("#test1").val(el.value);
+	document.getElementById("test1").value = el.value;
+	var performance_value = el.value;
+	console.log(performance_value);
+}
+
+function proc_for_potential(el) {
+	$("#test2").val(el.value);
+	document.getElementById("test1").value = el.value;
+	var performance_value = el.value;
+	console.log(performance_value);
+}
+</script>
 	
 </body>
 </html>
-{% endblock %}
