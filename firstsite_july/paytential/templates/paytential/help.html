@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+    {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'paytential/css/main_css.css' %}" type = "text/css"/>
+</head>
+
+<body>
+<!--Nav Bar-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="#"><img src="{% static 'paytential/images/paytential_logo.png' %}" class="img-responsive logo" style="position: relative; top: -70%;" ></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+		<li><a href="http://138.197.108.135/operation/">Home</a></li>
+		<li><a href="http://138.197.108.135/signup/">Create user</a></li>
+        <li><a href="http://138.197.108.135/dashboard/">Dashboard</a></li>
+        <li><a href="http://138.197.108.135/help/">Help</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	
+<!--FAQ template code begins-->
+<div class="container"> 
+<div class="panel-group col-md-8 col-md-offset-2 center-block" id="accordion" role="tablist" aria-multiselectable="true" style="float: none;
+    margin: 0 auto;">
+	<div class="text-center">
+		<h1><img class="apple" src="{% static 'paytential/images/AppleOrange2017.png' %}" style="width: 10%; height: 10%;"> Help</h1>
+	</div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Q: What is the 9 grid evaluation system? 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+       <img class = "img-responsive center-block" src="{% static 'paytential/images/9box.jpg' %}">
+      -The 9-box grid is an industry standard for individual assessment tool that evaluates both an employee’s current contribution to the organization and his or her potential level of contribution to the organization. The 9-box grid is a simple table graph that rates “potential” on the Y (vertical axis) and “performance” on the X (horizontal axis). In other words, the vertical columns of the grid identify an individual employee’s growth potential within the organization and the horizontal rows identify whether the employee is below, meeting or exceeding performance expectations in his or her current role.
+	  </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         Q: How do you create a user?
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+      -After logging in as an HR/administrator there are four inputs: username, password, confirmation of the password, and last name of the user's supervisor. A new user will be created after all the inputs are filled and "submit" button has been clicked. When you are finished with creating new users, use the navigation button "Home" to return to your operational unit home page.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+         Q: How do you view just one block of grid?
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        -To view the employees in one block of grid, click on that specific grid, which will lead you to a zoom-in view page.
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Q: How will I know what is my administrative username and password?
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+		-You will receive your username and password in your email after your subscription is processed. 
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+	<div class="row text-center">
+		<h5>Subscribe to our monthly newsletter</h5>
+		<form class="form-inline col-xs-12 text-center" method="post" action="....py">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Email Address">
+			</div>
+				<button type="submit" class="btn orange-button explanation">Send</button>
+		</form>
+	</div>
+	<div class="row">
+		<ul id="social-icons" class="center-block">
+			<li class="social-icons col-xs-2"><a href="https://www.facebook.com/Paylocity" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook-official"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://twitter.com/Paylocity" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://www.linkedin.com/company-beta/24614" class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://www.youtube.com/user/PaylocityCorporation" class="btn btn-social-icon btn-youtube"><i class="fa fa-youtube"></i></a></li>
+			<li class="social-icons col-xs-2"><a href="https://plus.google.com/+paylocity" class="btn btn-social-icon btn-google"><i class="fa fa-google"></i></a></li>
+		</ul>
+	</div>
+	<h6 class="text-center">&#9400 Team Unit 2017</h6>
+</footer>
+
+</body>
+</html>

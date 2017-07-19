@@ -1,0 +1,295 @@
+/*this page does not have hoverable effects, and active nav, beacuse you can not access anything untill you logged in*/
+/*general styles*/
+
+body {
+	
+	background: linear-gradient(
+      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.3)
+    ),url("/static/paytential/images/treeradient.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.explanation, .glyphicon-search {
+	color: white;
+}
+
+td:hover  {
+    background-color:rgba(255,85,17,0.7);
+}
+
+td a:hover  {
+    color:white;
+}
+
+td a {
+    display:block;
+    width:100%;
+}
+
+.crumb_style {
+	background-color: rgba(0,0,0,0);
+	color: white;
+}
+
+.crumb_style:hover {
+	color: #DADADA;
+	text-decoration: none;
+}
+
+.breadcrumb-item active{
+	color: orange;
+}
+
+
+.logo {
+	position: relative; top: -70%;
+}
+
+.panel-table, .panel-group, .panel-body, .table_name{
+	background:rgba(218,218,218,0.4);
+}
+
+.panel-group {
+	padding-bottom: 1em;
+}
+
+
+h1, h2, h3, h4,td, em, th{
+	color: white;
+	
+}
+
+.search_bar {
+	margin: 1em 0 1em 0;
+	background: rgba(0,0,0,0);
+}
+
+.comment, .margin_top {
+	margin-top: 1em;
+}
+
+
+
+.comments {
+	background:rgba(218,218,218,0.6);
+	margin: 1em 0;
+}
+
+.def-text {
+	color: white;
+}
+
+.comment-text {
+	color: #666666;
+}
+
+.nav.navbar-nav.navbar-brand li a {
+    color: #666666;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #666666;  /*Sets the text hover color on navbar*/
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
+ a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: white; /*BACKGROUND color for active*/
+	background-color: #d35400;
+}
+
+  .navbar-default {
+    background-color:white;
+    
+}
+
+  .dropdown-menu > li > a:hover,
+   .dropdown-menu > li > a:focus {
+	   color: #262626;
+	   text-decoration: none;
+	   background-color: #66CCFF;  /*change color of links in drop down here*/
+   }
+
+ .nav > li > a:hover,
+ .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #F5F5F5; /*Change rollover cell color here*/
+	border-bottom:0.2em solid #C5352D;
+  }
+
+
+ .navbar-default .navbar-nav > li > a {
+   color: #666666; /*Change active text color here*/
+    }
+	
+	
+.jumbotron {
+	background:rgba(218,218,218,0.4);
+	}
+footer {
+	background-color:white;
+	margin-top: 2em;
+	padding: 1em;
+}
+
+/*for footer*/
+.footer {
+	display: table;
+	width: 100%;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+#social-icons {
+	list-style: none;
+	display: table;
+	margin: 2em auto;
+}
+
+i.fa {
+	font-size: 180%;
+	color:#666666;
+}
+
+i.fa:hover {
+	color:#0052A1;
+}
+
+h5, h6 {
+	color: #666666;
+}
+
+ .orange-button{
+	background-color:#FF5511;
+}
+.orange-button:hover {
+	background-color:#FF8C5E;
+	}
+
+.input_top_margin {
+	margin-top: 1em;
+}
+
+
+
+/*ratings*/
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    padding:0.1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:250%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content:'🍏';
+
+}
+
+.rating > input:checked ~ label {
+    color: #459644;
+    text-shadow:1px 1px #c60, 2px 2px #940, 0.1em 0.1em 0.2em rgba(0,0,0,.5);
+}
+.rating > input:checked ~ label:before {
+    content:'🍎';
+
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color:#459644;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, 0.1em 0.1em 0.2em rgba(0,0,0,.5);
+	transform: scale(1.2);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #459644;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, 0.1em 0.1em 0.2em rgba(0,0,0,.5);
+	transform: scale(1.2);
+}
+
+.comments {
+	padding: 2em;
+}
+
+
+/*Media Queries*/
+
+/* Small devices (tablets, 768px and up) */
+ 
+ @media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.2em;
+	}
+	
+	h5 {
+		font-size: 1em;
+	}
+	
+	.row {
+		margin-right: 0;
+		margin-left: 0;	
+	}
+
+	#mobile_button {
+		width: 80%;
+	}
+
+	#mobile_input {
+		width: 80%;
+	}
+
+
+	
+	
+	
+.rating:not(:checked) > label {
+    float:right;
+    padding:0.1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:150%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+	
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { 
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { 
+
+ }
